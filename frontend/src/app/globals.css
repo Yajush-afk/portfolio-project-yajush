@@ -7,32 +7,33 @@
     /* Light Mode: White background, Orange accents, Black text */
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
-    
+
     --card: 0 0% 98%;
     --card-foreground: 0 0% 0%;
-    
+
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
-    
-    --primary: 24 95% 53%; /* Orange */
+
+    --primary: 24 95% 53%;
+    /* Orange */
     --primary-foreground: 0 0% 100%;
-    
+
     --secondary: 240 5% 96%;
     --secondary-foreground: 240 5.9% 10%;
-    
+
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
-    
+
     --accent: 24 95% 53%;
     --accent-foreground: 0 0% 100%;
-    
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 24 95% 53%;
-    
+
     --radius: 0.5rem;
   }
 
@@ -40,28 +41,30 @@
     /* Dark Mode: Black background, Dark Blue accents, White text */
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
-    
-    --card: 222 47% 11%; /* Dark Blue-ish Black */
+
+    --card: 222 47% 11%;
+    /* Dark Blue-ish Black */
     --card-foreground: 0 0% 100%;
-    
+
     --popover: 222 47% 11%;
     --popover-foreground: 0 0% 100%;
-    
-    --primary: 217 91% 60%; /* Blue Accent */
+
+    --primary: 217 91% 60%;
+    /* Blue Accent */
     --primary-foreground: 0 0% 100%;
-    
+
     --secondary: 217 19% 27%;
     --secondary-foreground: 0 0% 100%;
-    
+
     --muted: 217 19% 27%;
     --muted-foreground: 215 20.2% 65.1%;
-    
+
     --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
-    
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    
+
     --border: 217 19% 27%;
     --input: 217 19% 27%;
     --ring: 217 91% 60%;
@@ -72,7 +75,12 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground transition-colors duration-300;
+    background-image: linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
+
 }

@@ -80,7 +80,7 @@ export default function SocialPage() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="bg-card border border-border rounded-xl p-6 shadow-sm hover:border-primary/50 transition-colors flex flex-col"
+                    className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/50 transition-all duration-300 flex flex-col"
                 >
                     <div className="flex items-center gap-3 mb-4 text-primary">
                         <FiTwitter size={24} />
@@ -111,7 +111,7 @@ export default function SocialPage() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="bg-card border border-border rounded-xl p-6 shadow-sm hover:border-primary/50 transition-colors flex flex-col"
+                    className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-500/50 transition-all duration-300 flex flex-col"
                 >
                     <div className="flex items-center gap-3 mb-4 text-blue-600">
                         <FiLinkedin size={24} />

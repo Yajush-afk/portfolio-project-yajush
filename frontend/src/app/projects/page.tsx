@@ -110,7 +110,7 @@ export default function ProjectsPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-lg transition-all"
+                                className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl hover:shadow-primary/10 hover:border-primary/50 transition-all duration-300"
                             >
                                 <div className="relative h-48 w-full bg-secondary/50">
                                     {project.image_url ? (
