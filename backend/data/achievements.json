@@ -1,0 +1,31 @@
+{
+    "achievements": [
+        {
+            "id": "ach_001",
+            "type": "certificate",
+            "title": "Supervised Machine Learning: Regression and Classification",
+            "issuer": "Andrew Ng / Coursera",
+            "date": "2025-01-15",
+            "image_url": "/static/achievements/ml-cert1.jpeg",
+            "credential_link": "#"
+        },
+        {
+            "id": "ach_002",
+            "type": "certificate",
+            "title": "Advanced Learning Algorithms",
+            "issuer": "Andrew Ng / Coursera",
+            "date": "2025-02-10",
+            "image_url": "/static/achievements/ml-cert2.jpeg",
+            "credential_link": "#"
+        },
+        {
+            "id": "ach_003",
+            "type": "contribution",
+            "title": "OWASP-BLT Contribution",
+            "issuer": "OWASP",
+            "date": "2025-03-01",
+            "image_url": "/static/achievements/os-contribution.jpeg",
+            "credential_link": "#"
+        }
+    ]
+}
