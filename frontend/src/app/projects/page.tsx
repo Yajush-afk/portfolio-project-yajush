@@ -56,7 +56,7 @@ export default function ProjectsPage() {
     }
 
     return (
-        <div className="space-y-20 pb-20">
+        <div className="space-y-20 pt-10">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
