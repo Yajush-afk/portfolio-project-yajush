@@ -1,0 +1,44 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { FiMoon, FiSun } from "react-icons/fi";
+import { motion } from "framer-motion";
+
+export default function ThemeToggle() {
+    const [theme, setTheme] = useState("light");
+
+    useEffect(() => {
+        // Check local storage or system preference on mount
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            setTheme(savedTheme);
+            document.documentElement.classList.toggle("dark", savedTheme === "dark");
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setTheme("dark");
+            document.documentElement.classList.add("dark");
+        }
+    }, []);
+
+    const toggleTheme = () => {
+        const newTheme = theme === "light" ? "dark" : "light";
+        setTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
+        document.documentElement.classList.toggle("dark", newTheme === "dark");
+    };
+
+    return (
+        <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+            aria-label="Toggle Theme"
+        >
+            <motion.div
+                initial={false}
+                animate={{ rotate: theme === "dark" ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+            >
+                {theme === "light" ? <FiSun size={20} /> : <FiMoon size={20} />}
+            </motion.div>
+        </button>
+    );
+}
