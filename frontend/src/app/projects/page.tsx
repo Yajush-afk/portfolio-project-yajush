@@ -119,6 +119,7 @@ export default function ProjectsPage() {
                                             alt={project.title}
                                             fill
                                             className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                            unoptimized
                                         />
                                     ) : (
                                         <div className="flex items-center justify-center h-full text-muted-foreground">

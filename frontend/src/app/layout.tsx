@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Yajush Srivastava | Portfolio",
   description: "Computer Science Student & Developer",
+  icons: {
+    icon: "http://localhost:8000/static/favicon.png",
+  },
 };
 
 export default function RootLayout({

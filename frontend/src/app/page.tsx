@@ -102,15 +102,15 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-secondary shadow-2xl"
         >
-          {about?.image_url && (
-            <Image
-              src={`http://localhost:8000${about.image_url}`}
-              alt="Profile"
-              fill
-              className="object-cover"
-              priority
-            />
-          )}
+          {about?.image_url && <Image
+            src={`http://localhost:8000${about.image_url}`}
+            alt="Profile"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority
+            unoptimized
+          />}
         </motion.div>
       </section>
 
@@ -171,6 +171,7 @@ export default function Home() {
                     alt={ach.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    unoptimized
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full text-muted-foreground">

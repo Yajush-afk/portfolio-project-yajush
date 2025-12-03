@@ -15,10 +15,15 @@ app.add_middleware(
 )
 
 # Mount static files
-# Ensure the directory exists to avoid errors if empty
 import os
-os.makedirs("static", exist_ok=True)
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# Get the absolute path to the backend directory (parent of app)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+
+# Ensure the directory exists (it should, but for safety)
+os.makedirs(STATIC_DIR, exist_ok=True)
+
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 @app.get("/")
 async def root():
