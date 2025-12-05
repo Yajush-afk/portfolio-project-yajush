@@ -5,7 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { fetchAPI } from "@/lib/api";
-import { FiArrowRight, FiAward, FiBook, FiCode } from "react-icons/fi";
+import { FiArrowRight, FiAward, FiBook, FiCode, FiClock, FiTerminal, FiMusic, FiSearch, FiGithub } from "react-icons/fi";
+import { 
+  SiHtml5, SiCss3, SiPython, SiCplusplus, SiFastapi, SiDjango, SiFlask, 
+  SiMysql, SiPostgresql, SiScikitlearn, SiTensorflow, SiPytorch, 
+  SiKaggle, SiGooglecolab, SiUbuntu, SiBrave, SiSpotify 
+} from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 
 // Types
 interface AboutData {
@@ -30,12 +36,52 @@ interface Achievement {
   credential_link?: string;
 }
 
+const techStack = [
+  { category: "Frontend", items: [
+    { name: "HTML5", icon: SiHtml5, url: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "hover:text-orange-500" },
+    { name: "CSS3", icon: SiCss3, url: "https://developer.mozilla.org/en-US/docs/Web/CSS", color: "hover:text-blue-500" }
+  ]},
+  { category: "Backend", items: [
+    { name: "Python", icon: SiPython, url: "https://www.python.org/", color: "hover:text-yellow-400" },
+    { name: "C++", icon: SiCplusplus, url: "https://isocpp.org/", color: "hover:text-blue-600" }
+  ]},
+  { category: "Frameworks", items: [
+    { name: "FastAPI", icon: SiFastapi, url: "https://fastapi.tiangolo.com/", color: "hover:text-teal-400" },
+    { name: "Django", icon: SiDjango, url: "https://www.djangoproject.com/", color: "hover:text-green-600" },
+    { name: "Flask", icon: SiFlask, url: "https://flask.palletsprojects.com/", color: "hover:text-gray-400" }
+  ]},
+  { category: "Database", items: [
+    { name: "MySQL", icon: SiMysql, url: "https://www.mysql.com/", color: "hover:text-blue-400" },
+    { name: "PostgreSQL", icon: SiPostgresql, url: "https://www.postgresql.org/", color: "hover:text-blue-300" }
+  ]},
+  { category: "Data Science", items: [
+    { name: "Scikit-learn", icon: SiScikitlearn, url: "https://scikit-learn.org/", color: "hover:text-orange-400" },
+    { name: "TensorFlow", icon: SiTensorflow, url: "https://www.tensorflow.org/", color: "hover:text-orange-500" },
+    { name: "PyTorch", icon: SiPytorch, url: "https://pytorch.org/", color: "hover:text-red-500" }
+  ]},
+  { category: "Platforms", items: [
+    { name: "VS Code", icon: VscVscode, url: "https://code.visualstudio.com/", color: "hover:text-blue-500" },
+    { name: "Kaggle", icon: SiKaggle, url: "https://www.kaggle.com/", color: "hover:text-blue-400" },
+    { name: "Colab", icon: SiGooglecolab, url: "https://colab.research.google.com/", color: "hover:text-orange-400" }
+  ]}
+];
+
+const toolkit = [
+  { name: "VS Code", icon: VscVscode, url: "https://code.visualstudio.com/", color: "text-blue-500" },
+  { name: "Terminal", icon: SiUbuntu, url: "https://ubuntu.com/", color: "text-orange-500" },
+  { name: "Brave", icon: SiBrave, url: "https://brave.com/", color: "text-orange-600" },
+  { name: "Spotify", icon: SiSpotify, url: "https://open.spotify.com/", color: "text-green-500" },
+  { name: "Perplexity", icon: FiSearch, url: "https://www.perplexity.ai/", color: "text-teal-400" }, // Using generic search icon as proxy
+  { name: "GitHub", icon: FiGithub, url: "https://github.com/", color: "text-white" }
+];
+
 export default function Home() {
   const [about, setAbout] = useState<AboutData | null>(null);
   const [education, setEducation] = useState<EducationData | null>(null);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
   const [quote, setQuote] = useState<string>("");
   const [loading, setLoading] = useState(true);
+  const [time, setTime] = useState<string>("");
 
   useEffect(() => {
     async function loadData() {
@@ -57,6 +103,16 @@ export default function Home() {
       }
     }
     loadData();
+
+    // Clock Logic
+    const updateTime = () => {
+      const now = new Date();
+      const istTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+      setTime(istTime.toLocaleTimeString("en-GB", { hour12: false }));
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
   }, []);
 
   if (loading) {
@@ -68,7 +124,7 @@ export default function Home() {
   }
 
   return (
-    <div className="space-y-20 pb-20">
+    <div className="space-y-16 pb-20">
       {/* Hero Section */}
       <section className="flex flex-col md:flex-row items-center gap-10 md:gap-20 pt-10">
         <motion.div
@@ -117,18 +173,107 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Quote of the Day */}
-      <motion.section
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-        className="text-center max-w-2xl mx-auto px-4"
-      >
-        <blockquote className="text-xl md:text-2xl font-medium italic text-muted-foreground/80">
-          "{quote}"
-        </blockquote>
-        <p className="text-sm text-muted-foreground mt-2">— Quote of the Day —</p>
-      </motion.section>
+      {/* Quote & Clock Row */}
+      <section className="grid md:grid-cols-3 gap-6">
+        {/* Quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="md:col-span-2 bg-secondary/20 border border-border rounded-2xl p-6 flex flex-col justify-center text-center md:text-left"
+        >
+          <blockquote className="text-lg md:text-xl font-medium italic text-muted-foreground/90">
+            "{quote}"
+          </blockquote>
+          <p className="text-xs text-muted-foreground mt-3 uppercase tracking-widest opacity-70">— Quote of the Day</p>
+        </motion.div>
+
+        {/* Clock */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="bg-card border border-border rounded-2xl p-6 flex flex-col items-center justify-center gap-2 shadow-sm"
+        >
+          <div className="text-muted-foreground flex items-center gap-2 text-sm font-medium uppercase tracking-wider">
+            <FiClock /> IST (India)
+          </div>
+          <div className="text-4xl font-mono font-bold text-primary tracking-widest">
+            {time}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Tech Stack & Toolkit Row */}
+      <section className="grid lg:grid-cols-3 gap-8">
+        {/* Tech Stack */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="lg:col-span-2 space-y-6"
+        >
+          <h2 className="text-2xl font-bold flex items-center gap-2">
+            <FiCode className="text-primary" /> Tech Stack
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {techStack.map((stack) => (
+              <div key={stack.category} className="bg-card/50 border border-border rounded-xl p-4 hover:border-primary/30 transition-colors">
+                <h3 className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wider">{stack.category}</h3>
+                <div className="flex flex-wrap gap-3">
+                  {stack.items.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`text-2xl transition-transform hover:scale-110 ${item.color}`}
+                      title={item.name}
+                    >
+                      <item.icon />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Toolkit (Dock Style) */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="flex flex-col h-full"
+        >
+          <h2 className="text-2xl font-bold flex items-center gap-2 mb-6">
+            <FiTerminal className="text-primary" /> My Toolkit
+          </h2>
+          <div className="flex-1 bg-secondary/30 border border-border rounded-2xl p-6 flex items-center justify-center">
+             <div className="bg-background/80 backdrop-blur-md border border-white/10 px-6 py-4 rounded-2xl flex gap-4 shadow-2xl">
+                {toolkit.map((tool) => (
+                  <a
+                    key={tool.name}
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex flex-col items-center gap-2"
+                  >
+                    <div className={`text-3xl transition-all duration-300 group-hover:-translate-y-2 group-hover:scale-110 ${tool.color}`}>
+                      <tool.icon />
+                    </div>
+                    <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] font-medium bg-foreground text-background px-2 py-0.5 rounded whitespace-nowrap pointer-events-none">
+                      {tool.name}
+                    </span>
+                    <div className="w-1 h-1 rounded-full bg-primary/50 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-2" />
+                  </a>
+                ))}
+             </div>
+          </div>
+        </motion.div>
+      </section>
 
       {/* Education Section */}
       <section className="space-y-8">
