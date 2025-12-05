@@ -185,7 +185,7 @@ export default function Home() {
           <blockquote className="text-lg md:text-xl font-medium italic text-muted-foreground/90">
             "{quote}"
           </blockquote>
-          <p className="text-xs text-muted-foreground mt-3 uppercase tracking-widest opacity-70">— Quote of the Day</p>
+          <p className="text-xs text-muted-foreground mt-3 uppercase tracking-widest opacity-70">— Quote of the Day —</p>
         </motion.div>
 
         {/* Clock */}
