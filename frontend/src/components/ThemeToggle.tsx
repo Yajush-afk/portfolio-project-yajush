@@ -8,14 +8,11 @@ export default function ThemeToggle() {
     const [theme, setTheme] = useState("light");
 
     useEffect(() => {
-        // Check local storage or system preference on mount
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-            setTheme(savedTheme);
-            document.documentElement.classList.toggle("dark", savedTheme === "dark");
-        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        // Check if dark mode is already applied by the script
+        if (document.documentElement.classList.contains("dark")) {
             setTheme("dark");
-            document.documentElement.classList.add("dark");
+        } else {
+            setTheme("light");
         }
     }, []);
 

@@ -1,187 +1,129 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { fetchAPI } from "@/lib/api";
-import { FiLinkedin, FiMail, FiArrowRight, FiGithub } from "react-icons/fi";
+import { FiLinkedin, FiMail, FiGithub, FiArrowUpRight, FiCpu, FiGlobe, FiRadio } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 
-interface SocialPost {
-    content: string;
-    link: string;
-    date: string;
-}
-
-interface SocialData {
-    x_post?: SocialPost;
-    linkedin_post?: SocialPost;
-}
+const socials = [
+    {
+        name: "GitHub",
+        handle: "@Yajush-afk",
+        link: "https://github.com/Yajush-afk",
+        icon: FiGithub,
+        color: "hover:text-white",
+        desc: "Code Repository",
+        status: "Systems Normal"
+    },
+    {
+        name: "LinkedIn",
+        handle: "Yajush Srivastava",
+        link: "https://www.linkedin.com/in/yajush-srivastava-98b212335/",
+        icon: FiLinkedin,
+        color: "hover:text-blue-400",
+        desc: "Professional Network",
+        status: "Open for Connections"
+    },
+    {
+        name: "X (Twitter)",
+        handle: "@Yajush_who",
+        link: "https://x.com/Yajush_who",
+        icon: FaXTwitter,
+        color: "hover:text-sky-400",
+        desc: "Transmission Stream",
+        status: "Broadcasting"
+    }
+];
 
 export default function SocialPage() {
-    const [posts, setPosts] = useState<SocialData | null>(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function loadData() {
-            try {
-                const data = await fetchAPI("/social/posts");
-                setPosts(data);
-            } catch (error) {
-                console.error("Failed to load social posts", error);
-            } finally {
-                setLoading(false);
-            }
-        }
-        loadData();
-    }, []);
-
-    if (loading) {
-        return (
-            <div className="flex items-center justify-center min-h-[60vh]">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-            </div>
-        );
-    }
-
     return (
-        <div className="max-w-4xl mx-auto space-y-16 pt-10">
+        <div className="max-w-4xl mx-auto space-y-16 pt-10 pb-20">
+            {/* Header Section */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-center space-y-4"
+                className="text-center space-y-4 relative"
             >
-                <h1 className="text-4xl font-bold">Socials</h1>
-                <p className="text-muted-foreground">
-                    Connect with me on social media or drop me an email.
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                    Comms <span className="text-primary">Hub</span>
+                </h1>
+                <p className="text-muted-foreground max-w-lg mx-auto text-lg">
+                    Establish a connection via the following secure channels.
                 </p>
-                <div className="flex justify-center gap-6 pt-4">
-                    <a
-                        href="https://x.com/Yajush_who"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 bg-secondary rounded-full hover:bg-primary hover:text-white transition-colors"
-                    >
-                        <FaXTwitter size={24} />
-                    </a>
-                    <a
-                        href="https://linkedin.com/in/yajush-srivastava-98b212335"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 bg-secondary rounded-full hover:bg-primary hover:text-white transition-colors"
-                    >
-                        <FiLinkedin size={24} />
-                    </a>
-                    <a
-                        href="https://github.com/Yajush-afk"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 bg-secondary rounded-full hover:bg-primary hover:text-white transition-colors"
-                    >
-                        <FiGithub size={24} />
-                    </a>
-                </div>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-                {/* X/Twitter Card */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/50 transition-all duration-300 flex flex-col"
-                >
-                    <div className="flex items-center gap-3 mb-4 text-primary">
-                        <FaXTwitter size={24} />
-                        <h2 className="font-semibold">Latest on X</h2>
-                    </div>
-                    {posts?.x_post ? (
-                        <div className="flex-1 flex flex-col justify-between space-y-4">
-                            <p className="text-lg italic">"{posts.x_post.content}"</p>
-                            <div className="flex items-center justify-between text-sm text-muted-foreground pt-4 border-t border-border">
-                                <span>{posts.x_post.date}</span>
-                                <a
-                                    href={posts.x_post.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-primary hover:underline"
-                                >
-                                    View Post
-                                </a>
-                            </div>
-                        </div>
-                    ) : (
-                        <p className="text-muted-foreground">No recent posts found.</p>
-                    )}
-                </motion.div>
+            {/* Social Modules */}
+            <div className="grid gap-6">
+                {socials.map((social, index) => (
+                    <motion.a
+                        key={social.name}
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="group relative overflow-hidden bg-card/50 backdrop-blur-sm border border-border p-6 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
 
-                {/* LinkedIn Card */}
-                <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-500/50 transition-all duration-300 flex flex-col"
-                >
-                    <div className="flex items-center gap-3 mb-4 text-blue-600">
-                        <FiLinkedin size={24} />
-                        <h2 className="font-semibold">Latest on LinkedIn</h2>
-                    </div>
-                    {posts?.linkedin_post ? (
-                        <div className="flex-1 flex flex-col justify-between space-y-4">
-                            <p className="text-lg italic">"{posts.linkedin_post.content}"</p>
-                            <div className="flex items-center justify-between text-sm text-muted-foreground pt-4 border-t border-border">
-                                <span>{posts.linkedin_post.date}</span>
-                                <a
-                                    href={posts.linkedin_post.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-primary hover:underline"
-                                >
-                                    View Post
-                                </a>
+                        <div className="flex items-center justify-between relative z-10">
+                            <div className="flex items-center gap-6">
+                                <div className={`p-4 rounded-xl bg-secondary/50 group-hover:bg-primary/10 transition-colors ${social.color}`}>
+                                    <social.icon size={32} />
+                                </div>
+                                <div className="space-y-1">
+                                    <div className="flex items-center gap-3">
+                                        <h2 className="text-xl font-bold">{social.name}</h2>
+                                        <span className="text-xs px-2 py-0.5 rounded-full bg-secondary text-muted-foreground border border-border/50 flex items-center gap-1">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                                            {social.status}
+                                        </span>
+                                    </div>
+                                    <p className="text-muted-foreground font-mono text-sm">{social.desc} // {social.handle}</p>
+                                </div>
                             </div>
+                            <FiArrowUpRight className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" size={24} />
                         </div>
-                    ) : (
-                        <p className="text-muted-foreground">No recent posts found.</p>
-                    )}
-                </motion.div>
+                    </motion.a>
+                ))}
             </div>
 
-            {/* Contact Section */}
+            {/* Direct Line / Email */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-secondary/30 rounded-2xl p-8 text-center space-y-6"
+                className="relative mt-12"
             >
-                <div className="inline-block p-4 bg-background rounded-full shadow-sm text-primary">
-                    <FiMail size={32} />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 rounded-3xl -z-10" />
+                <div className="border border-dashed border-border rounded-3xl p-8 md:p-12 text-center space-y-6">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary mb-4">
+                        <FiMail size={32} className="text-primary" />
+                    </div>
+                    <h2 className="text-2xl font-bold">Direct Uplink</h2>
+                    <p className="text-muted-foreground max-w-md mx-auto">
+                        For inquiries, collaborations, or technical discussions, initialize a direct transmission.
+                    </p>
+                    <a
+                        href="mailto:yajush24606@gmail.com"
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/20"
+                    >
+                        <FiRadio className="animate-pulse" />
+                        yajush24606@gmail.com
+                    </a>
                 </div>
-                <h2 className="text-2xl font-bold">Get in Touch</h2>
-                <p className="text-muted-foreground max-w-md mx-auto">
-                    Feel free to reach out for collaborations, opportunities, or just a friendly chat about tech!
-                </p>
-                <a
-                    href="mailto:yajush24606@gmail.com"
-                    className="inline-block text-xl font-medium hover:text-primary transition-colors"
-                >
-                    yajush24606@gmail.com
-                </a>
             </motion.div>
 
-            <div className="flex justify-center gap-4">
-                <Link
-                    href="/"
-                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                >
-                    Back to Home
+            {/* Footer Nav */}
+            <div className="flex justify-center gap-6 text-sm text-muted-foreground pt-8">
+                <Link href="/" className="hover:text-primary transition-colors flex items-center gap-2">
+                    <FiGlobe /> Return to Base
                 </Link>
-                <span className="text-muted-foreground">•</span>
-                <Link
-                    href="/projects"
-                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                >
-                    View Projects <FiArrowRight />
+                <span>|</span>
+                <Link href="/projects" className="hover:text-primary transition-colors flex items-center gap-2">
+                    <FiCpu /> View Projects
                 </Link>
             </div>
         </div>
