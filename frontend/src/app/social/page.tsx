@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { fetchAPI } from "@/lib/api";
-import { FiLinkedin, FiMail, FiTwitter, FiArrowRight } from "react-icons/fi";
+import { FiLinkedin, FiMail, FiArrowRight, FiGithub } from "react-icons/fi";
+import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 
 interface SocialPost {
@@ -61,7 +62,7 @@ export default function SocialPage() {
                         rel="noopener noreferrer"
                         className="p-3 bg-secondary rounded-full hover:bg-primary hover:text-white transition-colors"
                     >
-                        <FiTwitter size={24} />
+                        <FaXTwitter size={24} />
                     </a>
                     <a
                         href="https://linkedin.com/in/yajush-srivastava-98b212335"
@@ -70,6 +71,14 @@ export default function SocialPage() {
                         className="p-3 bg-secondary rounded-full hover:bg-primary hover:text-white transition-colors"
                     >
                         <FiLinkedin size={24} />
+                    </a>
+                    <a
+                        href="https://github.com/Yajush-afk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 bg-secondary rounded-full hover:bg-primary hover:text-white transition-colors"
+                    >
+                        <FiGithub size={24} />
                     </a>
                 </div>
             </motion.div>
@@ -83,7 +92,7 @@ export default function SocialPage() {
                     className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/50 transition-all duration-300 flex flex-col"
                 >
                     <div className="flex items-center gap-3 mb-4 text-primary">
-                        <FiTwitter size={24} />
+                        <FaXTwitter size={24} />
                         <h2 className="font-semibold">Latest on X</h2>
                     </div>
                     {posts?.x_post ? (

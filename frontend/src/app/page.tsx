@@ -34,19 +34,22 @@ export default function Home() {
   const [about, setAbout] = useState<AboutData | null>(null);
   const [education, setEducation] = useState<EducationData | null>(null);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
+  const [quote, setQuote] = useState<string>("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadData() {
       try {
-        const [aboutData, eduData, achData] = await Promise.all([
+        const [aboutData, eduData, achData, quoteData] = await Promise.all([
           fetchAPI("/about"),
           fetchAPI("/education"),
           fetchAPI("/achievements"),
+          fetchAPI("/quotes/daily"),
         ]);
         setAbout(aboutData);
         setEducation(eduData);
         setAchievements(achData.achievements || []);
+        setQuote(quoteData.quote);
       } catch (error) {
         console.error("Failed to load data", error);
       } finally {
@@ -113,6 +116,19 @@ export default function Home() {
           />}
         </motion.div>
       </section>
+
+      {/* Quote of the Day */}
+      <motion.section
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="text-center max-w-2xl mx-auto px-4"
+      >
+        <blockquote className="text-xl md:text-2xl font-medium italic text-muted-foreground/80">
+          "{quote}"
+        </blockquote>
+        <p className="text-sm text-muted-foreground mt-2">— Quote of the Day —</p>
+      </motion.section>
 
       {/* Education Section */}
       <section className="space-y-8">
