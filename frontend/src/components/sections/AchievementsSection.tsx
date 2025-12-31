@@ -22,7 +22,7 @@ const AchievementCard = ({ ach, index }: { ach: Achievement; index: number }) =>
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
+    viewport={{ once: false }}
     transition={{ delay: index * 0.1 }}
     className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl hover:shadow-primary/10 hover:border-primary/50 transition-all duration-300 flex flex-col h-full"
   >
@@ -75,7 +75,7 @@ export default function AchievementsSection({ achievements }: AchievementsSectio
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         className="space-y-4 mb-16 text-center"
       >
         <h2 className="text-3xl font-bold inline-flex items-center gap-3">
@@ -97,7 +97,7 @@ export default function AchievementsSection({ achievements }: AchievementsSectio
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
               {certifications.map((ach, index) => (
                 <div key={ach.id} className="w-full max-w-sm">
-                   <AchievementCard ach={ach} index={index} />
+                  <AchievementCard ach={ach} index={index} />
                 </div>
               ))}
             </div>

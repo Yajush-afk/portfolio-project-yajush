@@ -93,7 +93,7 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.2 }}
                 className="space-y-10"
             >
                 <h2 className="text-3xl font-bold flex items-center gap-3">
@@ -108,7 +108,13 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                         </div>
 
                         {/* Terminal Component (Visual Balance) */}
-                        <div className="bg-card border border-border rounded-xl overflow-hidden shadow-lg font-mono text-sm">
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: false }}
+                            transition={{ delay: 0.2 }}
+                            className="bg-card border border-border rounded-xl overflow-hidden shadow-lg font-mono text-sm"
+                        >
                             <div className="bg-secondary/50 px-4 py-2 border-b border-border flex items-center gap-2">
                                 <div className="w-3 h-3 rounded-full bg-red-500" />
                                 <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -135,10 +141,16 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                     <span className="text-green-500">➜</span> <span className="text-blue-500">~</span> <span className="inline-block w-2 h-4 bg-primary align-middle ml-1" />
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Open to Work Section */}
-                        <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 space-y-4">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false }}
+                            transition={{ delay: 0.3 }}
+                            className="bg-primary/5 border border-primary/20 rounded-xl p-6 space-y-4"
+                        >
                             <div className="flex items-center gap-2">
                                 <span className="relative flex h-3 w-3">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -153,7 +165,7 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                     </div>
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* Right Column: Tech Stack & Toolkit */}
@@ -164,8 +176,15 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                 <FiCode className="text-primary" /> Tech Stack
                             </h3>
                             <div className="grid grid-cols-2 gap-3">
-                                {techStack.map((stack) => (
-                                    <div key={stack.category} className="bg-card/50 border border-border rounded-lg p-3 hover:border-primary/30 transition-colors">
+                                {techStack.map((stack, idx) => (
+                                    <motion.div 
+                                        key={stack.category} 
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: false }}
+                                        transition={{ delay: idx * 0.1 }}
+                                        className="bg-card/50 border border-border rounded-lg p-3 hover:border-primary/30 transition-colors"
+                                    >
                                         <h4 className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">{stack.category}</h4>
                                         <div className="flex flex-wrap gap-2">
                                             {stack.items.map((item) => (
@@ -181,7 +200,7 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                                 </a>
                                             ))}
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
@@ -191,14 +210,24 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                             <h3 className="text-xl font-bold flex items-center gap-2">
                                 <FiTerminal className="text-primary" /> Toolkit
                             </h3>
-                            <div className="bg-secondary/30 border border-border rounded-xl p-4 flex items-center justify-center">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false }}
+                                transition={{ delay: 0.2 }}
+                                className="bg-secondary/30 border border-border rounded-xl p-4 flex items-center justify-center"
+                            >
                                 <div className="flex gap-3 flex-wrap justify-center">
-                                    {toolkit.map((tool) => (
-                                        <a
+                                    {toolkit.map((tool, idx) => (
+                                        <motion.a
                                             key={tool.name}
                                             href={tool.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            initial={{ opacity: 0, scale: 0 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: false }}
+                                            transition={{ delay: 0.3 + (idx * 0.05) }}
                                             className="group relative flex flex-col items-center gap-1"
                                         >
                                             <div className={`text-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110 ${tool.color}`}>
@@ -207,10 +236,10 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                             <span className="absolute -bottom-6 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] font-medium bg-foreground text-background px-2 py-0.5 rounded whitespace-nowrap pointer-events-none z-10">
                                                 {tool.name}
                                             </span>
-                                        </a>
+                                        </motion.a>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Currently Locked On */}
@@ -220,12 +249,16 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                             </h3>
                             <div className="space-y-2">
                                 {learning?.items.map((item: string, index: number) => (
-                                    <div
+                                    <motion.div
                                         key={index}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: false }}
+                                        transition={{ delay: 0.4 + (index * 0.1) }}
                                         className="bg-card border border-border px-4 py-2 rounded-lg text-sm font-medium shadow-sm"
                                     >
                                         {item}
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>

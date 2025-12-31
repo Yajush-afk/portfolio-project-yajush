@@ -40,7 +40,7 @@ export default function SocialSection() {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className="space-y-4 mb-10"
             >
                 <h2 className="text-3xl font-bold flex items-center gap-3">
@@ -61,7 +61,7 @@ export default function SocialSection() {
                         rel="noopener noreferrer"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ delay: index * 0.1 }}
                         className="group relative overflow-hidden bg-card/50 backdrop-blur-sm border border-border p-6 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
                     >
@@ -93,7 +93,7 @@ export default function SocialSection() {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className="relative mt-12"
             >
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 rounded-3xl -z-10" />

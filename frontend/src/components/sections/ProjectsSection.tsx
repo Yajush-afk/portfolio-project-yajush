@@ -25,7 +25,7 @@ export default function ProjectsSection({ projects, excuse }: ProjectsSectionPro
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className="space-y-4 mb-10"
             >
                 <h2 className="text-3xl font-bold flex items-center gap-3">
@@ -44,7 +44,7 @@ export default function ProjectsSection({ projects, excuse }: ProjectsSectionPro
                             key={project.id}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ delay: index * 0.1 }}
                             className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl hover:shadow-primary/10 hover:border-primary/50 transition-all duration-300 flex flex-col"
                         >
@@ -115,7 +115,7 @@ export default function ProjectsSection({ projects, excuse }: ProjectsSectionPro
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="space-y-4"
                 >
                     <h2 className="text-2xl font-bold">More Projects Coming Soon...</h2>

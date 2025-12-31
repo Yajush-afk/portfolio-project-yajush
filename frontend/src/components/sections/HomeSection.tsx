@@ -18,7 +18,8 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
             <div className="flex flex-col md:flex-row items-center gap-10 md:gap-20">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.5 }}
                     className="flex-1 space-y-6 text-center md:text-left"
                 >
@@ -58,7 +59,8 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="relative w-64 h-64 md:w-80 md:h-80 rounded-full md:rounded-2xl overflow-hidden border-4 border-secondary shadow-2xl mx-auto"
                 >
@@ -82,7 +84,7 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="md:col-span-2 bg-secondary/20 border border-border rounded-2xl p-6 flex flex-col justify-center text-center md:text-left"
                 >
                     <blockquote className="text-lg md:text-xl font-medium italic text-muted-foreground/90">
@@ -97,7 +99,7 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ delay: 0.1 }}
                     className="bg-card border border-border rounded-2xl p-6 flex flex-col items-center justify-center gap-2 shadow-sm"
                 >
@@ -113,7 +115,8 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
             {/* Scroll Down Indicator */}
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
                 transition={{ delay: 1, duration: 1 }}
                 className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50"
             >
