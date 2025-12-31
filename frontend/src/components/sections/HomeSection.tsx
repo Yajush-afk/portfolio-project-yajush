@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FiArrowRight, FiCode, FiClock } from "react-icons/fi";
+import { FiArrowRight, FiCode, FiClock, FiEdit3, FiAward } from "react-icons/fi";
 
 interface HomeSectionProps {
     about: any;
@@ -28,7 +28,19 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                         Backend Engineer and AI/ML Engineer (learning)
                     </p>
-                    <div className="flex gap-4 pt-4 justify-center md:justify-start">
+                    <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
+                        <Link
+                            href="#about"
+                            className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary/80 transition-colors"
+                        >
+                            About Me <FiEdit3 />
+                        </Link>
+                        <Link
+                            href="#achievements"
+                            className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary/80 transition-colors"
+                        >
+                            Achievements <FiAward />
+                        </Link>
                         <Link
                             href="#projects"
                             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
