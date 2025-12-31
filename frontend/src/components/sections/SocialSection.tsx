@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiLinkedin, FiMail, FiGithub, FiArrowUpRight, FiCpu, FiGlobe, FiRadio } from "react-icons/fi";
+import { FiLinkedin, FiMail, FiGithub, FiArrowUpRight, FiRadio } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
-import Link from "next/link";
 
 const socials = [
     {
@@ -35,20 +34,19 @@ const socials = [
     }
 ];
 
-export default function SocialPage() {
+export default function SocialSection() {
     return (
-        <div className="max-w-4xl mx-auto space-y-16 pt-10 pb-20">
-            {/* Header Section */}
+        <section id="socials" className="min-h-screen flex flex-col justify-center py-20">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-center space-y-4 relative"
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="space-y-4 mb-10"
             >
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                    Comms <span className="text-primary">Hub</span>
-                </h1>
-                <p className="text-muted-foreground max-w-lg mx-auto text-lg">
+                <h2 className="text-3xl font-bold flex items-center gap-3">
+                    Socials & Contact
+                </h2>
+                <p className="text-muted-foreground">
                     Establish a connection via the following secure channels.
                 </p>
             </motion.div>
@@ -62,7 +60,8 @@ export default function SocialPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
                         transition={{ delay: index * 0.1 }}
                         className="group relative overflow-hidden bg-card/50 backdrop-blur-sm border border-border p-6 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
                     >
@@ -115,17 +114,6 @@ export default function SocialPage() {
                     </a>
                 </div>
             </motion.div>
-
-            {/* Footer Nav */}
-            <div className="flex justify-center gap-6 text-sm text-muted-foreground pt-8">
-                <Link href="/" className="hover:text-primary transition-colors flex items-center gap-2">
-                    <FiGlobe /> Return to Base
-                </Link>
-                <span>|</span>
-                <Link href="/projects" className="hover:text-primary transition-colors flex items-center gap-2">
-                    <FiCpu /> View Projects
-                </Link>
-            </div>
-        </div>
+        </section>
     );
 }
