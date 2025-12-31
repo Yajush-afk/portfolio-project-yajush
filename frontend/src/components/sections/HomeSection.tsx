@@ -37,7 +37,7 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
                         </Link>
                         <Link
                             href="#achievements"
-                            className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary/80 transition-colors"
+                            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
                         >
                             Achievements <FiAward />
                         </Link>
