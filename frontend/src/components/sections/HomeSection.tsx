@@ -13,7 +13,7 @@ interface HomeSectionProps {
 
 export default function HomeSection({ about, quote, time }: HomeSectionProps) {
     return (
-        <section id="home" className="min-h-screen flex flex-col justify-center py-0">
+        <section id="home" className="min-h-screen flex flex-col justify-center py-0 relative">
             {/* Hero Section */}
             <div className="flex flex-col md:flex-row items-center gap-10 md:gap-20">
                 <motion.div
@@ -109,6 +109,22 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
                     </div>
                 </motion.div>
             </div>
+
+            {/* Scroll Down Indicator */}
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 1 }}
+                className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50"
+            >
+                <span className="text-xs uppercase tracking-widest">Scroll Down</span>
+                <motion.div
+                    animate={{ y: [0, 5, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                    <FiArrowRight className="rotate-90" />
+                </motion.div>
+            </motion.div>
         </section>
     );
 }
