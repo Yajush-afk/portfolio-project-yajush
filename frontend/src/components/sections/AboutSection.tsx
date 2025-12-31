@@ -108,7 +108,7 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                         </div>
 
                         {/* Terminal Component (Visual Balance) */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: false }}
@@ -144,7 +144,7 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                         </motion.div>
 
                         {/* Open to Work Section */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false }}
@@ -159,8 +159,14 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                 <h3 className="font-bold text-lg">Open to Work</h3>
                             </div>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                {["Backend Engineer", "ML Intern", "Research", "Others"].map((role) => (
-                                    <div key={role} className="bg-background border border-border rounded-lg p-2 text-center text-sm font-medium hover:border-primary/50 transition-colors cursor-default">
+                                {["Backend Engineer", "ML Intern", "Research", "Resume Link"].map((role) => (
+                                    <div
+                                        key={role}
+                                        className={`bg-background border rounded-lg p-2 text-center text-sm font-medium transition-colors cursor-default uppercase ${role === "Resume Link"
+                                                ? "border-primary border-2"
+                                                : "border-border hover:border-primary/50"
+                                            }`}
+                                    >
                                         {role}
                                     </div>
                                 ))}
@@ -177,8 +183,8 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                             </h3>
                             <div className="grid grid-cols-2 gap-3">
                                 {techStack.map((stack, idx) => (
-                                    <motion.div 
-                                        key={stack.category} 
+                                    <motion.div
+                                        key={stack.category}
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: false }}
@@ -210,7 +216,7 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                             <h3 className="text-xl font-bold flex items-center gap-2">
                                 <FiTerminal className="text-primary" /> Toolkit
                             </h3>
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false }}
