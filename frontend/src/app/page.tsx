@@ -5,11 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { fetchAPI } from "@/lib/api";
-import { FiArrowRight, FiAward, FiBook, FiCode, FiClock, FiTerminal, FiMusic, FiSearch, FiGithub } from "react-icons/fi";
+import { FiArrowRight, FiAward, FiBook, FiCode, FiClock, FiTerminal, FiMusic, FiSearch } from "react-icons/fi";
 import { 
   SiHtml5, SiCss3, SiPython, SiCplusplus, SiFastapi, SiDjango, SiFlask, 
   SiMysql, SiPostgresql, SiScikitlearn, SiTensorflow, SiPytorch, 
-  SiKaggle, SiGooglecolab, SiUbuntu, SiBrave, SiSpotify 
+  SiKaggle, SiGooglecolab, SiUbuntu, SiBrave, SiSpotify, SiGithub
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
@@ -72,7 +72,7 @@ const toolkit = [
   { name: "Brave", icon: SiBrave, url: "https://brave.com/", color: "text-orange-600" },
   { name: "Spotify", icon: SiSpotify, url: "https://open.spotify.com/", color: "text-green-500" },
   { name: "Perplexity", icon: FiSearch, url: "https://www.perplexity.ai/", color: "text-teal-400" }, // Using generic search icon as proxy
-  { name: "GitHub", icon: FiGithub, url: "https://github.com/", color: "text-white" }
+  { name: "GitHub", icon: SiGithub, url: "https://github.com/", color: "text-foreground" }
 ];
 
 export default function Home() {
