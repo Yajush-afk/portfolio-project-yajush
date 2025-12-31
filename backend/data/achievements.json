@@ -7,7 +7,7 @@
             "issuer": "Andrew Ng / Coursera",
             "date": "2025-01-15",
             "image_url": "/static/achievements/ml-cert1.jpeg",
-            "credential_link": "#"
+            "credential_link": "https://coursera.org/share/f24cad83b3af0622f2c614617c36642c"
         },
         {
             "id": "ach_002",
@@ -16,7 +16,7 @@
             "issuer": "Andrew Ng / Coursera",
             "date": "2025-02-10",
             "image_url": "/static/achievements/ml-cert2.jpeg",
-            "credential_link": "#"
+            "credential_link": "https://coursera.org/share/e4f060c096fb887523d80371382fcbf9"
         },
         {
             "id": "ach_003",
