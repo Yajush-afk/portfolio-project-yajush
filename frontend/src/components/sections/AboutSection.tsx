@@ -10,9 +10,18 @@ import {
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
+interface AboutData {
+    bio: string;
+    image_url: string;
+}
+
+interface CurrentlyLearning {
+    items: string[];
+}
+
 interface AboutSectionProps {
-    about: any;
-    learning: any;
+    about: AboutData | null;
+    learning: CurrentlyLearning | null;
 }
 
 const techStack = [
@@ -131,7 +140,7 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                     </div>
                                     <div className="space-y-1 text-xs">
                                         <p><span className="font-bold text-primary">OS</span>: Linux x86_64</p>
-                                        <p><span className="font-bold text-primary">Host</span>: Yajush's Portfolio</p>
+                                        <p><span className="font-bold text-primary">Host</span>: Yajush&apos;s Portfolio</p>
                                         <p><span className="font-bold text-primary">Uptime</span>: Till the coffee runs out</p>
                                         <p><span className="font-bold text-primary">Shell</span>: zsh 5.9</p>
                                         <p><span className="font-bold text-primary">Theme</span>: {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}</p>
@@ -163,8 +172,8 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                     <div
                                         key={role}
                                         className={`bg-background border rounded-lg p-2 text-center text-sm font-medium transition-colors cursor-default uppercase ${role === "Resume Link"
-                                                ? "border-primary border-2"
-                                                : "border-border hover:border-primary/50"
+                                            ? "border-primary border-2"
+                                            : "border-border hover:border-primary/50"
                                             }`}
                                     >
                                         {role}

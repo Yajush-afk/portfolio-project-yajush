@@ -80,7 +80,7 @@ export default function SocialSection() {
                                             {social.status}
                                         </span>
                                     </div>
-                                    <p className="text-muted-foreground font-mono text-sm">{social.desc} // {social.handle}</p>
+                                    <p className="text-muted-foreground font-mono text-sm">{social.desc} {" // "} {social.handle}</p>
                                 </div>
                             </div>
                             <FiArrowUpRight className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" size={24} />

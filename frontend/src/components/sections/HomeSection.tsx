@@ -1,12 +1,18 @@
 "use client";
 
+import { getAPIUrl } from "@/lib/api";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowRight, FiCode, FiClock, FiEdit3, FiAward } from "react-icons/fi";
 
+interface AboutData {
+    bio: string;
+    image_url: string;
+}
+
 interface HomeSectionProps {
-    about: any;
+    about: AboutData | null;
     quote: string;
     time: string;
 }
@@ -24,10 +30,10 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
                     className="flex-1 space-y-6 text-center md:text-left"
                 >
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                        Hi, I'm <span className="text-primary">Yajush</span>
+                        Hi, I&apos;m <span className="text-primary">Yajush</span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                        Backend Engineer and AI/ML Engineer (learning)
+                        Backend Engineer and AI/ML Engineer &lpar;learning&rpar;
                     </p>
                     <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
                         <Link
@@ -66,7 +72,7 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
                 >
                     {about?.image_url && (
                         <Image
-                            src={`http://localhost:8000${about.image_url}`}
+                            src={getAPIUrl(about.image_url)}
                             alt="Profile"
                             fill
                             className="object-cover"
@@ -88,7 +94,7 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
                     className="md:col-span-2 bg-secondary/20 border border-border rounded-2xl p-6 flex flex-col justify-center text-center md:text-left"
                 >
                     <blockquote className="text-lg md:text-xl font-medium italic text-muted-foreground/90">
-                        "{quote}"
+                        &quot;{quote}&quot;
                     </blockquote>
                     <p className="text-xs text-muted-foreground mt-3 uppercase tracking-widest opacity-70">
                         — Quote of the Day —

@@ -1,5 +1,6 @@
 "use client";
 
+import { getAPIUrl } from "@/lib/api";
 import { motion } from "framer-motion";
 import { FiCode, FiGithub, FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
@@ -32,7 +33,7 @@ export default function ProjectsSection({ projects, excuse }: ProjectsSectionPro
                     Projects
                 </h2>
                 <p className="text-muted-foreground">
-                    A showcase of my technical journey and what I'm building.
+                    A showcase of my technical journey and what I&apos;m building.
                 </p>
             </motion.div>
 
@@ -51,7 +52,7 @@ export default function ProjectsSection({ projects, excuse }: ProjectsSectionPro
                             <div className="relative h-48 w-full bg-secondary/50 overflow-hidden">
                                 {project.image_url ? (
                                     <Image
-                                        src={`http://localhost:8000${project.image_url}`}
+                                        src={getAPIUrl(project.image_url)}
                                         alt={project.title}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -122,7 +123,7 @@ export default function ProjectsSection({ projects, excuse }: ProjectsSectionPro
                     <div className="max-w-md mx-auto p-6 bg-card rounded-xl border border-primary/20 shadow-sm relative">
                         <div className="absolute -top-3 -left-3 text-4xl">🤔</div>
                         <p className="text-lg font-medium italic text-muted-foreground">
-                            "{excuse}"
+                            &quot;{excuse}&quot;
                         </p>
                     </div>
                 </motion.div>

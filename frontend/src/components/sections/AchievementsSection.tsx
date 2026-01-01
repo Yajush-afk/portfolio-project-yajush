@@ -1,5 +1,6 @@
 "use client";
 
+import { getAPIUrl } from "@/lib/api";
 import { motion } from "framer-motion";
 import { FiAward, FiBriefcase } from "react-icons/fi";
 import Image from "next/image";
@@ -29,7 +30,7 @@ const AchievementCard = ({ ach, index }: { ach: Achievement; index: number }) =>
     <div className="relative h-48 w-full bg-secondary/50 overflow-hidden">
       {ach.image_url ? (
         <Image
-          src={`http://localhost:8000${ach.image_url}`}
+          src={getAPIUrl(ach.image_url)}
           alt={ach.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
