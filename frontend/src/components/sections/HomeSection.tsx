@@ -33,7 +33,7 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
                         Hi, I&apos;m <span className="text-primary">Yajush</span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                        Backend Engineer and AI/ML Engineer &lpar;learning&rpar;
+                        Backend Engineer and AI/ML Engineer (learning)
                     </p>
                     <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
                         <Link
