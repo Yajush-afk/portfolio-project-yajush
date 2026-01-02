@@ -8,7 +8,10 @@ app = FastAPI(title=Config.PROJECT_NAME, version=Config.VERSION)
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # For development, allow all. Restrict in production.
+    allow_origins=[
+        "http://localhost:3000",  # For local development
+        "https://yajush-web.vercel.app",  # For production (Vercel frontend)
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
