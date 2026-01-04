@@ -8,6 +8,11 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import AchievementsSection from "@/components/sections/AchievementsSection";
 import SocialSection from "@/components/sections/SocialSection";
 import Footer from "@/components/Footer";
+import HomeSkeleton from "@/components/skeletons/HomeSkeleton";
+import AboutSkeleton from "@/components/skeletons/AboutSkeleton";
+import AchievementsSkeleton from "@/components/skeletons/AchievementsSkeleton";
+import ProjectsSkeleton from "@/components/skeletons/ProjectsSkeleton";
+import SocialSkeleton from "@/components/skeletons/SocialSkeleton";
 
 // Types
 interface AboutData {
@@ -97,8 +102,12 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      <div className="max-w-4xl mx-auto px-6 md:px-8">
+        <HomeSkeleton />
+        <AboutSkeleton />
+        <AchievementsSkeleton />
+        <ProjectsSkeleton />
+        <SocialSkeleton />
       </div>
     );
   }
