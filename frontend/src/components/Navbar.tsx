@@ -22,7 +22,7 @@ export default function Navbar() {
     useEffect(() => {
         const handleScroll = () => {
             const sections = navItems.map((item) => item.path.replace("/#", ""));
-            
+
             // Find the current section
             for (const section of sections) {
                 const element = document.getElementById(section);
@@ -41,25 +41,29 @@ export default function Navbar() {
         window.addEventListener("scroll", handleScroll);
         // Trigger once on mount to set initial state
         handleScroll();
-        
+
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         if (pathname !== "/") return;
         e.preventDefault();
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+        if (id === 'home') {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
         }
     };
 
     return (
         <nav className="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-xl border-b border-border/40 supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-                <Link 
-                    href="/" 
-                    className="text-2xl font-bold tracking-tighter hover:text-primary transition-colors" 
+                <Link
+                    href="/"
+                    className="text-2xl font-bold tracking-tighter hover:text-primary transition-colors"
                     onClick={(e) => scrollToSection(e, 'home')}
                 >
                     YS
@@ -70,7 +74,7 @@ export default function Navbar() {
                         {navItems.map((item) => {
                             const sectionId = item.path.replace("/#", "");
                             const isActive = activeSection === sectionId;
-                            
+
                             return (
                                 <Link
                                     key={item.path}
