@@ -19,7 +19,7 @@ interface HomeSectionProps {
 
 export default function HomeSection({ about, quote, time }: HomeSectionProps) {
     return (
-        <section id="home" className="min-h-screen flex flex-col justify-center py-0 relative">
+        <section id="home" className="min-h-screen flex flex-col justify-center pt-0 pb-24 relative">
             {/* Hero Section */}
             <div className="flex flex-col md:flex-row items-center gap-10 md:gap-20">
                 <motion.div
