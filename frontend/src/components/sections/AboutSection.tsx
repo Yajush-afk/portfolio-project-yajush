@@ -179,7 +179,7 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                         return (
                                             <a
                                                 key={role}
-                                                href="https://drive.google.com/file/d/11Amas6-DH5lwDm4XYLdsarT-6gjgdKA3/view?usp=sharing"
+                                                href="https://drive.google.com/file/d/1ZZq_9GMh2_VlDqM2Og5r5A9rfA37AHs9/view?usp=sharing"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className={className}
