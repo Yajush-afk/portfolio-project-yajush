@@ -168,17 +168,33 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                 <h3 className="font-bold text-lg">Open to Work</h3>
                             </div>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                {["Backend Engineer", "ML Intern", "Research", "Resume Link"].map((role) => (
-                                    <div
-                                        key={role}
-                                        className={`bg-background border rounded-lg p-2 text-center text-sm font-medium transition-colors cursor-default uppercase ${role === "Resume Link"
-                                            ? "border-primary border-2"
-                                            : "border-border hover:border-primary/50"
-                                            }`}
-                                    >
-                                        {role}
-                                    </div>
-                                ))}
+                                {["Backend Engineer", "ML Intern", "Research", "Resume Link"].map((role) => {
+                                    const isResume = role === "Resume Link";
+                                    const className = `bg-background border rounded-lg p-2 text-center text-sm font-medium transition-colors uppercase ${isResume
+                                            ? "border-primary border-2 cursor-pointer hover:bg-primary/10"
+                                            : "border-border hover:border-primary/50 cursor-default"
+                                        }`;
+
+                                    if (isResume) {
+                                        return (
+                                            <a
+                                                key={role}
+                                                href="https://drive.google.com/file/d/11Amas6-DH5lwDm4XYLdsarT-6gjgdKA3/view?usp=sharing"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={className}
+                                            >
+                                                {role}
+                                            </a>
+                                        );
+                                    }
+
+                                    return (
+                                        <div key={role} className={className}>
+                                            {role}
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </motion.div>
                     </div>
