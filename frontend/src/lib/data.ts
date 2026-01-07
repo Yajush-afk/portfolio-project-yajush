@@ -26,6 +26,7 @@ export interface Achievement {
     date: string;
     credential_link: string | null;
     image_url: string | null;
+    description?: string;
 }
 
 export interface SocialPost {

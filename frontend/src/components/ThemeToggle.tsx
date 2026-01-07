@@ -23,7 +23,7 @@ export default function ThemeToggle() {
         const newTheme = theme === "light" ? "dark" : "light";
         setTheme(newTheme);
         localStorage.setItem("theme", newTheme);
-        
+
         if (newTheme === "dark") {
             document.documentElement.classList.add("dark");
         } else {
@@ -39,7 +39,7 @@ export default function ThemeToggle() {
     return (
         <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+            className="p-2 rounded-full text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
             aria-label="Toggle Theme"
         >
             <motion.div

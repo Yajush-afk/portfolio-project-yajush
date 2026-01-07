@@ -158,7 +158,7 @@ export default function AboutSection() {
                                             <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                                         </span>
                                         <h3 className="font-bold text-xl flex items-center gap-2">
-                                            Hire Me As...
+                                            Hire Me As:
                                         </h3>
                                     </div>
                                     

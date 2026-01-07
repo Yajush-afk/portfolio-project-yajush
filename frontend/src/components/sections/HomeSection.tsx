@@ -49,28 +49,28 @@ export default function HomeSection() {
                     </p>
                     
                     {/* Symmetric CTA Grid */}
-                    <div className="grid grid-cols-2 lg:flex gap-4 pt-4 w-full md:w-auto">
+                    <div className="grid grid-cols-2 gap-4 pt-4 w-full max-w-md md:max-w-lg">
                         <Link
                             href="#about"
-                            className="flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary/80 transition-colors text-sm md:text-base"
+                            className="flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-6 py-4 rounded-xl font-medium hover:bg-secondary/80 transition-all hover:scale-105 shadow-sm"
                         >
                             About Me <FiEdit3 />
                         </Link>
                         <Link
                             href="#achievements"
-                            className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-sm md:text-base"
+                            className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 rounded-xl font-medium hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/20"
                         >
                             Achievements <FiAward />
                         </Link>
                         <Link
                             href="#projects"
-                            className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-sm md:text-base"
+                            className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 rounded-xl font-medium hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/20"
                         >
                             Projects <FiCode />
                         </Link>
                         <Link
                             href="#socials"
-                            className="flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary/80 transition-colors text-sm md:text-base"
+                            className="flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-6 py-4 rounded-xl font-medium hover:bg-secondary/80 transition-all hover:scale-105 shadow-sm"
                         >
                             Connect <FiArrowRight />
                         </Link>

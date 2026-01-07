@@ -35,18 +35,26 @@ const AchievementCard = ({ ach, index }: { ach: Achievement; index: number }) =>
         </span>
         <span className="text-xs text-muted-foreground">{ach.date}</span>
       </div>
-      <h3 className="font-semibold line-clamp-2 flex-1" title={ach.title}>
+      <h3 className="font-semibold line-clamp-2" title={ach.title}>
         {ach.title}
       </h3>
-      <p className="text-sm text-muted-foreground">{ach.issuer}</p>
-      {ach.type === "certificate" && ach.credential_link && (
+      <div className="flex-1 space-y-2">
+        <p className="text-sm text-muted-foreground">{ach.issuer}</p>
+        {ach.description && (
+          <p className="text-sm text-muted-foreground/80 italic">
+            {ach.description}
+          </p>
+        )}
+      </div>
+
+      {ach.credential_link && (
         <a
           href={ach.credential_link}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block text-sm text-primary hover:underline pt-2 mt-auto"
         >
-          View Credential
+          {ach.type === "certificate" ? "View Credential" : "View Contribution"}
         </a>
       )}
     </div>

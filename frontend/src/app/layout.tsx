@@ -27,11 +27,12 @@ export default function RootLayout({
               (function() {
                 try {
                   var localTheme = localStorage.getItem('theme');
-                  var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (localTheme === 'dark' || (!localTheme && supportDarkMode)) {
-                    document.documentElement.classList.add('dark');
-                  } else {
+                  // Default to dark mode if no preference or if preference is dark
+                  if (localTheme === 'light') {
                     document.documentElement.classList.remove('dark');
+                  } else {
+                    document.documentElement.classList.add('dark');
+                    if (!localTheme) localStorage.setItem('theme', 'dark');
                   }
                 } catch (e) {}
               })();
