@@ -31,15 +31,15 @@ export default function HomeSection() {
     }, []);
 
     return (
-        <section id="home" className="min-h-screen flex flex-col justify-center pt-0 pb-24 relative">
+        <section id="home" className="min-h-[90vh] flex flex-col justify-center pt-10 pb-12 relative">
             {/* Hero Section */}
-            <div className="flex flex-col md:flex-row items-center gap-10 md:gap-20">
+            <div className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-20">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: false }}
-                    transition={{ duration: 0.5 }}
-                    className="flex-1 space-y-6 text-center md:text-left"
+                    transition={{ duration: 0.3 }}
+                    className="flex-1 space-y-6 text-center md:text-left w-full"
                 >
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                         Hi, I&apos;m <span className="text-primary">Yajush</span>
@@ -47,28 +47,30 @@ export default function HomeSection() {
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                         Backend Engineer and AI/ML Engineer (learning)
                     </p>
-                    <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
+                    
+                    {/* Symmetric CTA Grid */}
+                    <div className="grid grid-cols-2 lg:flex gap-4 pt-4 w-full md:w-auto">
                         <Link
                             href="#about"
-                            className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary/80 transition-colors"
+                            className="flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary/80 transition-colors text-sm md:text-base"
                         >
                             About Me <FiEdit3 />
                         </Link>
                         <Link
                             href="#achievements"
-                            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                            className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-sm md:text-base"
                         >
                             Achievements <FiAward />
                         </Link>
                         <Link
                             href="#projects"
-                            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                            className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-sm md:text-base"
                         >
-                            View Projects <FiCode />
+                            Projects <FiCode />
                         </Link>
                         <Link
                             href="#socials"
-                            className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary/80 transition-colors"
+                            className="flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary/80 transition-colors text-sm md:text-base"
                         >
                             Connect <FiArrowRight />
                         </Link>
@@ -79,8 +81,8 @@ export default function HomeSection() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: false }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="relative w-64 h-64 md:w-80 md:h-80 rounded-full md:rounded-2xl overflow-hidden border-4 border-secondary shadow-2xl mx-auto"
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="relative w-48 h-48 md:w-80 md:h-80 rounded-full md:rounded-2xl overflow-hidden border-4 border-secondary shadow-2xl mx-auto shrink-0"
                 >
                     {about?.image_url && (
                         <Image
@@ -97,12 +99,13 @@ export default function HomeSection() {
             </div>
 
             {/* Quote & Clock Row */}
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
                 {/* Quote */}
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
                     className="md:col-span-2 bg-secondary/20 border border-border rounded-2xl p-6 flex flex-col justify-center text-center md:text-left"
                 >
                     <blockquote className="text-lg md:text-xl font-medium italic text-muted-foreground/90">
@@ -118,13 +121,13 @@ export default function HomeSection() {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false }}
-                    transition={{ delay: 0.1 }}
+                    transition={{ duration: 0.3, delay: 0.25 }}
                     className="bg-card border border-border rounded-2xl p-6 flex flex-col items-center justify-center gap-2 shadow-sm"
                 >
                     <div className="text-muted-foreground flex items-center gap-2 text-sm font-medium uppercase tracking-wider">
                         <FiClock /> IST (India)
                     </div>
-                    <div className="text-4xl font-mono font-bold text-primary tracking-widest">
+                    <div className="text-3xl md:text-4xl font-mono font-bold text-primary tracking-widest">
                         {time}
                     </div>
                 </motion.div>
@@ -135,8 +138,8 @@ export default function HomeSection() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
-                transition={{ delay: 1, duration: 1 }}
-                className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50"
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50"
             >
                 <span className="text-xs uppercase tracking-widest">Scroll Down</span>
                 <motion.div

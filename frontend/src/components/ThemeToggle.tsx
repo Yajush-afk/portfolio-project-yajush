@@ -5,15 +5,16 @@ import { FiMoon, FiSun } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 export default function ThemeToggle() {
-    const [theme, setTheme] = useState("light");
+    // Default to dark to match user preference and avoid light flash
+    const [theme, setTheme] = useState("dark");
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        // Check if dark mode is already applied by the script
+        setMounted(true);
+        // Sync state with the actual class set by the layout script
         if (document.documentElement.classList.contains("dark")) {
-            // eslint-disable-next-line react-hooks/set-state-in-effect
             setTheme("dark");
         } else {
-            // eslint-disable-next-line react-hooks/set-state-in-effect
             setTheme("light");
         }
     }, []);
@@ -22,8 +23,18 @@ export default function ThemeToggle() {
         const newTheme = theme === "light" ? "dark" : "light";
         setTheme(newTheme);
         localStorage.setItem("theme", newTheme);
-        document.documentElement.classList.toggle("dark", newTheme === "dark");
+        
+        if (newTheme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
     };
+
+    // Prevent hydration mismatch by not rendering the icon until mounted
+    if (!mounted) {
+        return <div className="w-9 h-9" />; // Placeholder
+    }
 
     return (
         <button

@@ -2,7 +2,7 @@
 
 import { getAboutData, getCurrentlyLearningData } from "@/lib/data";
 import { motion } from "framer-motion";
-import { FiCode, FiTerminal, FiSearch, FiLock } from "react-icons/fi";
+import { FiCode, FiTerminal, FiSearch, FiLock, FiDownload, FiBriefcase } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import {
     SiHtml5, SiCss3, SiPython, SiCplusplus, SiFastapi, SiDjango, SiFlask,
@@ -87,11 +87,12 @@ export default function AboutSection() {
     }, []);
 
     return (
-        <section id="about" className="min-h-screen flex flex-col justify-center py-20">
+        <section id="about" className="min-h-screen flex flex-col justify-center py-12">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.3 }}
                 className="space-y-10"
             >
                 <h2 className="text-3xl font-bold flex items-center gap-3">
@@ -110,7 +111,7 @@ export default function AboutSection() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: false }}
-                            transition={{ delay: 0.2 }}
+                            transition={{ delay: 0.1, duration: 0.3 }}
                             className="bg-card border border-border rounded-xl overflow-hidden shadow-lg font-mono text-sm"
                         >
                             <div className="bg-secondary/50 px-4 py-2 border-b border-border flex items-center gap-2">
@@ -141,49 +142,46 @@ export default function AboutSection() {
                             </div>
                         </motion.div>
 
-                        {/* Open to Work Section */}
+                        {/* Open to Work Section - Redesigned */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false }}
-                            transition={{ delay: 0.3 }}
-                            className="bg-primary/5 border border-primary/20 rounded-xl p-6 space-y-4"
+                            transition={{ delay: 0.2, duration: 0.3 }}
+                            className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
                         >
-                            <div className="flex items-center gap-2">
-                                <span className="relative flex h-3 w-3">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                                </span>
-                                <h3 className="font-bold text-lg">Open to Work</h3>
-                            </div>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                {["Backend Engineer", "ML Intern", "Research", "Resume Link"].map((role) => {
-                                    const isResume = role === "Resume Link";
-                                    const className = `bg-background border rounded-lg p-2 text-center text-sm font-medium transition-colors uppercase ${isResume
-                                        ? "border-primary border-2 cursor-pointer hover:bg-primary/10"
-                                        : "border-border hover:border-primary/50 cursor-default"
-                                        }`;
-
-                                    if (isResume) {
-                                        return (
-                                            <a
-                                                key={role}
-                                                href="https://drive.google.com/file/d/1ZZq_9GMh2_VlDqM2Og5r5A9rfA37AHs9/view?usp=sharing"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className={className}
+                            <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+                                <div className="space-y-4 flex-1">
+                                    <div className="flex items-center gap-3">
+                                        <span className="relative flex h-3 w-3">
+                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                                        </span>
+                                        <h3 className="font-bold text-xl flex items-center gap-2">
+                                            Hire Me As...
+                                        </h3>
+                                    </div>
+                                    
+                                    <div className="flex flex-wrap gap-2">
+                                        {["Backend Engineer", "ML Intern", "Researcher"].map((role) => (
+                                            <span 
+                                                key={role} 
+                                                className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium border border-border/50"
                                             >
                                                 {role}
-                                            </a>
-                                        );
-                                    }
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
 
-                                    return (
-                                        <div key={role} className={className}>
-                                            {role}
-                                        </div>
-                                    );
-                                })}
+                                <a
+                                    href="https://drive.google.com/file/d/1ZZq_9GMh2_VlDqM2Og5r5A9rfA37AHs9/view?usp=sharing"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full md:w-auto flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-bold hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/20 whitespace-nowrap"
+                                >
+                                    <FiDownload /> Download Resume
+                                </a>
                             </div>
                         </motion.div>
                     </div>
@@ -202,7 +200,7 @@ export default function AboutSection() {
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: false }}
-                                        transition={{ delay: idx * 0.1 }}
+                                        transition={{ delay: idx * 0.05, duration: 0.3 }}
                                         className="bg-card/50 border border-border rounded-lg p-3 hover:border-primary/30 transition-colors"
                                     >
                                         <h4 className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">{stack.category}</h4>
@@ -234,7 +232,7 @@ export default function AboutSection() {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false }}
-                                transition={{ delay: 0.2 }}
+                                transition={{ delay: 0.1, duration: 0.3 }}
                                 className="bg-secondary/30 border border-border rounded-xl p-4 flex items-center justify-center"
                             >
                                 <div className="flex gap-3 flex-wrap justify-center">
@@ -247,7 +245,7 @@ export default function AboutSection() {
                                             initial={{ opacity: 0, scale: 0 }}
                                             whileInView={{ opacity: 1, scale: 1 }}
                                             viewport={{ once: false }}
-                                            transition={{ delay: 0.3 + (idx * 0.05) }}
+                                            transition={{ delay: 0.2 + (idx * 0.05), duration: 0.3 }}
                                             className="group relative flex flex-col items-center gap-1"
                                         >
                                             <div className={`text-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110 ${tool.color}`}>
@@ -274,7 +272,7 @@ export default function AboutSection() {
                                         initial={{ opacity: 0, x: 20 }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: false }}
-                                        transition={{ delay: 0.4 + (index * 0.1) }}
+                                        transition={{ delay: 0.2 + (index * 0.05), duration: 0.3 }}
                                         className="bg-card border border-border px-4 py-2 rounded-lg text-sm font-medium shadow-sm"
                                     >
                                         {item}
