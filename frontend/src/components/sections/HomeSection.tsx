@@ -1,23 +1,35 @@
 "use client";
 
-import { getAPIUrl } from "@/lib/api";
+import { getAboutData, getDailyQuote } from "@/lib/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { FiArrowRight, FiCode, FiClock, FiEdit3, FiAward } from "react-icons/fi";
 
-interface AboutData {
-    bio: string;
-    image_url: string;
-}
+export default function HomeSection() {
+    const about = getAboutData();
+    const quote = getDailyQuote();
+    const [time, setTime] = useState<string>("");
 
-interface HomeSectionProps {
-    about: AboutData | null;
-    quote: string;
-    time: string;
-}
+    useEffect(() => {
+        const updateTime = () => {
+            const now = new Date();
+            const options: Intl.DateTimeFormatOptions = {
+                timeZone: "Asia/Kolkata",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: false,
+            };
+            setTime(now.toLocaleTimeString("en-US", options));
+        };
 
-export default function HomeSection({ about, quote, time }: HomeSectionProps) {
+        updateTime();
+        const interval = setInterval(updateTime, 1000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section id="home" className="min-h-screen flex flex-col justify-center pt-0 pb-24 relative">
             {/* Hero Section */}
@@ -72,7 +84,7 @@ export default function HomeSection({ about, quote, time }: HomeSectionProps) {
                 >
                     {about?.image_url && (
                         <Image
-                            src={getAPIUrl(about.image_url)}
+                            src={about.image_url}
                             alt="Profile"
                             fill
                             className="object-cover"
