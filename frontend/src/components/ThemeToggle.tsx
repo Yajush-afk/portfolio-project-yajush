@@ -29,6 +29,11 @@ export default function ThemeToggle() {
         } else {
             document.documentElement.classList.remove("dark");
         }
+
+        // Enable transitions after initial load to prevent flicker
+        setTimeout(() => {
+            document.body.classList.add("transition-theme");
+        }, 100);
     }, []);
 
     const toggleTheme = () => {
