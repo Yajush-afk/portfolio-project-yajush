@@ -11,11 +11,23 @@ export default function ThemeToggle() {
 
     useEffect(() => {
         setMounted(true);
-        // Sync state with the actual class set by the layout script
-        if (document.documentElement.classList.contains("dark")) {
-            setTheme("dark");
+        
+        // Check localStorage and system preference
+        const localTheme = localStorage.getItem("theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        // Determine initial theme
+        let initialTheme = "light";
+        if (localTheme === "dark" || (!localTheme && systemDark)) {
+            initialTheme = "dark";
+        }
+
+        // Apply theme
+        setTheme(initialTheme);
+        if (initialTheme === "dark") {
+            document.documentElement.classList.add("dark");
         } else {
-            setTheme("light");
+            document.documentElement.classList.remove("dark");
         }
     }, []);
 
