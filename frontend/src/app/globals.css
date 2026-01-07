@@ -54,7 +54,40 @@ html {
 }
 
 :root {
-  /* Light Mode: White background, Orange accents, Black text */
+  /* Dark Mode (Default) */
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+
+  --card: 222 47% 11%;
+  --card-foreground: 0 0% 100%;
+
+  --popover: 222 47% 11%;
+  --popover-foreground: 0 0% 100%;
+
+  --primary: 217 91% 60%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 217 19% 27%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 217 19% 27%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 217 91% 60%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 217 19% 27%;
+  --input: 217 19% 27%;
+  --ring: 217 91% 60%;
+
+  --radius: 0.5rem;
+}
+
+.light {
+  /* Light Mode */
   --background: 0 0% 100%;
   --foreground: 0 0% 0%;
 
@@ -65,7 +98,6 @@ html {
   --popover-foreground: 0 0% 0%;
 
   --primary: 24 95% 53%;
-  /* Orange */
   --primary-foreground: 0 0% 100%;
 
   --secondary: 240 5% 96%;
@@ -83,24 +115,20 @@ html {
   --border: 240 5.9% 90%;
   --input: 240 5.9% 90%;
   --ring: 24 95% 53%;
-
-  --radius: 0.5rem;
 }
 
 .dark {
-  /* Dark Mode: Black background, Dark Blue accents, White text */
+  /* Dark Mode (Explicit) */
   --background: 0 0% 0%;
   --foreground: 0 0% 100%;
 
   --card: 222 47% 11%;
-  /* Dark Blue-ish Black */
   --card-foreground: 0 0% 100%;
 
   --popover: 222 47% 11%;
   --popover-foreground: 0 0% 100%;
 
   --primary: 217 91% 60%;
-  /* Blue Accent */
   --primary-foreground: 0 0% 100%;
 
   --secondary: 217 19% 27%;

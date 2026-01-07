@@ -11,11 +11,11 @@ export default function ThemeToggle() {
 
     useEffect(() => {
         setMounted(true);
-        
+
         // Check localStorage and system preference
         const localTheme = localStorage.getItem("theme");
         const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        
+
         // Determine initial theme
         let initialTheme = "light";
         if (localTheme === "dark" || (!localTheme && systemDark)) {
@@ -26,9 +26,11 @@ export default function ThemeToggle() {
         setTheme(initialTheme);
         if (initialTheme === "dark") {
             document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
             document.documentElement.style.colorScheme = "dark";
         } else {
             document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
             document.documentElement.style.colorScheme = "light";
         }
 
@@ -45,9 +47,11 @@ export default function ThemeToggle() {
 
         if (newTheme === "dark") {
             document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
             document.documentElement.style.colorScheme = "dark";
         } else {
             document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
             document.documentElement.style.colorScheme = "light";
         }
     };
