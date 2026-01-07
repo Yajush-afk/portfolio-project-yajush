@@ -1,26 +1,15 @@
 "use client";
 
-import { getAPIUrl } from "@/lib/api";
+import { getProjectsData, getRandomExcuse, Project } from "@/lib/data";
 import { motion } from "framer-motion";
 import { FiCode, FiGithub, FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
 
-interface Project {
-    id: string;
-    title: string;
-    description: string;
-    tech_stack: string[];
-    github_link?: string;
-    demo_link?: string;
-    image_url?: string;
-}
+export default function ProjectsSection() {
+    const projectsData = getProjectsData();
+    const projects = projectsData.projects as Project[];
+    const excuse = getRandomExcuse();
 
-interface ProjectsSectionProps {
-    projects: Project[];
-    excuse: string;
-}
-
-export default function ProjectsSection({ projects, excuse }: ProjectsSectionProps) {
     return (
         <section id="projects" className="min-h-screen flex flex-col justify-center py-20">
             <motion.div
@@ -52,7 +41,7 @@ export default function ProjectsSection({ projects, excuse }: ProjectsSectionPro
                             <div className="relative h-48 w-full bg-secondary/50 overflow-hidden">
                                 {project.image_url ? (
                                     <Image
-                                        src={getAPIUrl(project.image_url)}
+                                        src={project.image_url}
                                         alt={project.title}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-105"

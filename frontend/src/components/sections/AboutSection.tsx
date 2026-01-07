@@ -1,5 +1,6 @@
 "use client";
 
+import { getAboutData, getCurrentlyLearningData } from "@/lib/data";
 import { motion } from "framer-motion";
 import { FiCode, FiTerminal, FiSearch, FiLock } from "react-icons/fi";
 import { useEffect, useState } from "react";
@@ -9,20 +10,6 @@ import {
     SiKaggle, SiGooglecolab, SiUbuntu, SiBrave, SiSpotify, SiGithub
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
-
-interface AboutData {
-    bio: string;
-    image_url: string;
-}
-
-interface CurrentlyLearning {
-    items: string[];
-}
-
-interface AboutSectionProps {
-    about: AboutData | null;
-    learning: CurrentlyLearning | null;
-}
 
 const techStack = [
     {
@@ -75,7 +62,9 @@ const toolkit = [
     { name: "GitHub", icon: SiGithub, url: "https://github.com/", color: "text-foreground" }
 ];
 
-export default function AboutSection({ about, learning }: AboutSectionProps) {
+export default function AboutSection() {
+    const about = getAboutData();
+    const learning = getCurrentlyLearningData();
     const [theme, setTheme] = useState("dark"); // Default to dark, will update on mount
 
     useEffect(() => {
@@ -171,8 +160,8 @@ export default function AboutSection({ about, learning }: AboutSectionProps) {
                                 {["Backend Engineer", "ML Intern", "Research", "Resume Link"].map((role) => {
                                     const isResume = role === "Resume Link";
                                     const className = `bg-background border rounded-lg p-2 text-center text-sm font-medium transition-colors uppercase ${isResume
-                                            ? "border-primary border-2 cursor-pointer hover:bg-primary/10"
-                                            : "border-border hover:border-primary/50 cursor-default"
+                                        ? "border-primary border-2 cursor-pointer hover:bg-primary/10"
+                                        : "border-border hover:border-primary/50 cursor-default"
                                         }`;
 
                                     if (isResume) {

@@ -1,23 +1,9 @@
 "use client";
 
-import { getAPIUrl } from "@/lib/api";
+import { getAchievementsData, Achievement } from "@/lib/data";
 import { motion } from "framer-motion";
 import { FiAward, FiBriefcase } from "react-icons/fi";
 import Image from "next/image";
-
-interface Achievement {
-  id: string;
-  type: string;
-  title: string;
-  issuer: string;
-  date: string;
-  image_url?: string;
-  credential_link?: string;
-}
-
-interface AchievementsSectionProps {
-  achievements: Achievement[];
-}
 
 const AchievementCard = ({ ach, index }: { ach: Achievement; index: number }) => (
   <motion.div
@@ -30,7 +16,7 @@ const AchievementCard = ({ ach, index }: { ach: Achievement; index: number }) =>
     <div className="relative h-48 w-full bg-secondary/50 overflow-hidden">
       {ach.image_url ? (
         <Image
-          src={getAPIUrl(ach.image_url)}
+          src={ach.image_url}
           alt={ach.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -67,7 +53,10 @@ const AchievementCard = ({ ach, index }: { ach: Achievement; index: number }) =>
   </motion.div>
 );
 
-export default function AchievementsSection({ achievements }: AchievementsSectionProps) {
+export default function AchievementsSection() {
+  const achievementsData = getAchievementsData();
+  const achievements = achievementsData.achievements as Achievement[];
+
   const certifications = achievements.filter((ach) => ach.type === "certificate");
   const proofOfWork = achievements.filter((ach) => ach.type !== "certificate");
 
