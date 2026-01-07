@@ -26,8 +26,10 @@ export default function ThemeToggle() {
         setTheme(initialTheme);
         if (initialTheme === "dark") {
             document.documentElement.classList.add("dark");
+            document.documentElement.style.colorScheme = "dark";
         } else {
             document.documentElement.classList.remove("dark");
+            document.documentElement.style.colorScheme = "light";
         }
 
         // Enable transitions after initial load to prevent flicker
@@ -43,8 +45,10 @@ export default function ThemeToggle() {
 
         if (newTheme === "dark") {
             document.documentElement.classList.add("dark");
+            document.documentElement.style.colorScheme = "dark";
         } else {
             document.documentElement.classList.remove("dark");
+            document.documentElement.style.colorScheme = "light";
         }
     };
 

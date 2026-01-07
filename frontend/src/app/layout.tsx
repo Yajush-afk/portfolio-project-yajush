@@ -28,11 +28,14 @@ export default function RootLayout({
                 try {
                   var localTheme = localStorage.getItem('theme');
                   var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  var isDark = localTheme === 'dark' || (!localTheme && supportDarkMode);
                   
-                  if (localTheme === 'dark' || (!localTheme && supportDarkMode)) {
+                  if (isDark) {
                     document.documentElement.classList.add('dark');
+                    document.documentElement.style.colorScheme = 'dark';
                   } else {
                     document.documentElement.classList.remove('dark');
+                    document.documentElement.style.colorScheme = 'light';
                   }
                 } catch (e) {}
               })();
