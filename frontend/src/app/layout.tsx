@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Yajush Srivastava | Portfolio",
   description: "Computer Science Student & Developer",
   icons: {
-    icon: "http://localhost:8000/static/favicon.png",
+    icon: "/static/favicon.png",
   },
 };
 
@@ -27,12 +27,12 @@ export default function RootLayout({
               (function() {
                 try {
                   var localTheme = localStorage.getItem('theme');
-                  // Default to dark mode if no preference or if preference is dark
-                  if (localTheme === 'light') {
-                    document.documentElement.classList.remove('dark');
-                  } else {
+                  var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  
+                  if (localTheme === 'dark' || (!localTheme && supportDarkMode)) {
                     document.documentElement.classList.add('dark');
-                    if (!localTheme) localStorage.setItem('theme', 'dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
                   }
                 } catch (e) {}
               })();
