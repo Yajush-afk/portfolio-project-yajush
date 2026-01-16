@@ -8,9 +8,9 @@ const greetings = [
     { text: "नमस्ते", lang: "hi" },
     { text: "Hallo", lang: "de" },
     { text: "Hola", lang: "es" },
-    { text: "Bonjour", lang: "fr", className: "text-3xl md:text-5xl" },
-    { text: "こんにちは", lang: "ja", className: "text-2xl md:text-4xl" },
-    { text: "Привет", lang: "ru", className: "text-3xl md:text-5xl" },
+    { text: "Bonjour", lang: "fr" },
+    { text: "こんにちは", lang: "ja" },
+    { text: "Привет", lang: "ru" },
 ];
 
 export default function GreetingFlipper() {
@@ -26,7 +26,7 @@ export default function GreetingFlipper() {
     const currentGreeting = greetings[index];
 
     return (
-        <div className="inline-flex items-center justify-end w-[180px] md:w-[300px]">
+        <span className="inline-block text-right w-[140px] md:w-[220px]">
             <AnimatePresence mode="wait">
                 <motion.span
                     key={currentGreeting.text}
@@ -34,13 +34,13 @@ export default function GreetingFlipper() {
                     animate={{ y: 0, opacity: 1, rotateX: 0 }}
                     exit={{ y: -20, opacity: 0, rotateX: 90 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className={`origin-center text-primary whitespace-nowrap text-right ${currentGreeting.className || ""}`}
+                    className="inline-block origin-center text-primary whitespace-nowrap"
                     style={{ backfaceVisibility: "hidden" }}
                     lang={currentGreeting.lang}
                 >
                     {currentGreeting.text}
                 </motion.span>
             </AnimatePresence>
-        </div>
+        </span>
     );
 }
