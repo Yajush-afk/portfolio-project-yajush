@@ -34,13 +34,13 @@ export default function HomeSection() {
     return (
         <section id="home" className="min-h-[90vh] flex flex-col justify-center pt-10 pb-12 relative">
             {/* Hero Section */}
-            <div className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-20">
+            <div className="flex flex-col-reverse md:flex-row items-start gap-10 md:gap-20">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: false }}
                     transition={{ duration: 0.3 }}
-                    className="flex-1 space-y-6 text-center md:text-left w-full"
+                    className="flex-1 space-y-6 text-center md:text-left w-full pt-2"
                 >
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex flex-col gap-2 md:gap-4 justify-center md:justify-start">
                         <span className="flex items-baseline justify-center md:justify-start">
@@ -105,19 +105,19 @@ export default function HomeSection() {
             </div>
 
             {/* Quote & Clock Row */}
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <div className="flex flex-col md:flex-row gap-10 md:gap-20 mt-12">
                 {/* Quote */}
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false }}
                     transition={{ duration: 0.3, delay: 0.2 }}
-                    className="md:col-span-2 bg-secondary/20 border border-border rounded-2xl p-6 flex flex-col justify-center text-center md:text-left"
+                    className="flex-1 bg-secondary/20 border border-border rounded-2xl p-5 flex flex-col justify-center text-center md:text-left"
                 >
                     <blockquote className="text-lg md:text-xl font-medium italic text-muted-foreground/90">
                         &quot;{quote}&quot;
                     </blockquote>
-                    <p className="text-xs text-muted-foreground mt-3 uppercase tracking-widest opacity-70">
+                    <p className="text-xs text-muted-foreground mt-2 uppercase tracking-widest opacity-70">
                         — Quote of the Day —
                     </p>
                 </motion.div>
@@ -128,12 +128,12 @@ export default function HomeSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false }}
                     transition={{ duration: 0.3, delay: 0.25 }}
-                    className="bg-card border border-border rounded-2xl p-6 flex flex-col items-center justify-center gap-2 shadow-sm"
+                    className="w-full md:w-80 shrink-0 bg-card border border-border rounded-2xl p-5 flex flex-col items-center justify-center gap-2 shadow-sm"
                 >
-                    <div className="text-muted-foreground flex items-center gap-2 text-sm font-medium uppercase tracking-wider">
+                    <div className="text-muted-foreground flex items-center gap-2 text-xs font-medium uppercase tracking-wider">
                         <FiClock /> IST (India)
                     </div>
-                    <div className="text-3xl md:text-4xl font-mono font-bold text-primary tracking-widest">
+                    <div className="text-2xl md:text-3xl font-mono font-bold text-primary tracking-widest">
                         {time}
                     </div>
                 </motion.div>
