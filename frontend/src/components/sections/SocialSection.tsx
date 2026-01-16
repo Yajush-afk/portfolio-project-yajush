@@ -55,7 +55,7 @@ export default function SocialSection() {
                 className="space-y-4 mb-12 text-center"
             >
                 <h2 className="text-3xl font-bold inline-flex items-center gap-3">
-                    Mission Control
+                    Socials
                 </h2>
                 <p className="text-muted-foreground">
                     Connect with me across the digital universe.
@@ -113,7 +113,7 @@ export default function SocialSection() {
                         I&apos;m always open to discussing new projects, creative ideas or opportunities to be part of your visions.
                     </p>
                 </div>
-                
+
                 <a
                     href="mailto:yajush24606@gmail.com"
                     className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-transform hover:scale-105 shadow-lg shadow-primary/20 max-w-full overflow-hidden"

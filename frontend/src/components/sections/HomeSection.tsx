@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiArrowRight, FiCode, FiClock, FiEdit3, FiAward } from "react-icons/fi";
+import GreetingFlipper from "../GreetingFlipper";
 
 export default function HomeSection() {
     const about = getAboutData();
@@ -41,8 +42,12 @@ export default function HomeSection() {
                     transition={{ duration: 0.3 }}
                     className="flex-1 space-y-6 text-center md:text-left w-full"
                 >
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                        Hi, I&apos;m <span className="text-primary">Yajush</span>
+                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-baseline justify-center md:justify-start">
+                        <span className="flex items-center">
+                            <GreetingFlipper />
+                            <span className="ml-2">, I&apos;m</span>
+                        </span>
+                        <span className="text-primary">Yajush</span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                         Backend Engineer and AI/ML Engineer (learning)
