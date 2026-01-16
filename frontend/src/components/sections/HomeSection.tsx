@@ -45,14 +45,14 @@ export default function HomeSection() {
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-baseline justify-center md:justify-start">
                         <span className="flex items-center">
                             <GreetingFlipper />
-                            <span className="ml-2">, I&apos;m</span>
+                            <span>, I&apos;m</span>
                         </span>
                         <span className="text-primary">Yajush</span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                         Backend Engineer and AI/ML Engineer (learning)
                     </p>
-                    
+
                     {/* Symmetric CTA Grid */}
                     <div className="grid grid-cols-2 gap-4 pt-4 w-full max-w-md md:max-w-lg">
                         <Link

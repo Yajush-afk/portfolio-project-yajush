@@ -26,7 +26,7 @@ export default function GreetingFlipper() {
     const currentGreeting = greetings[index];
 
     return (
-        <div className="inline-flex items-center justify-start min-w-[2ch]">
+        <div className="inline-flex items-center justify-end w-[180px] md:w-[300px]">
             <AnimatePresence mode="wait">
                 <motion.span
                     key={currentGreeting.text}
@@ -34,7 +34,7 @@ export default function GreetingFlipper() {
                     animate={{ y: 0, opacity: 1, rotateX: 0 }}
                     exit={{ y: -20, opacity: 0, rotateX: 90 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className={`origin-center text-primary whitespace-nowrap ${currentGreeting.className || ""}`}
+                    className={`origin-center text-primary whitespace-nowrap text-right ${currentGreeting.className || ""}`}
                     style={{ backfaceVisibility: "hidden" }}
                     lang={currentGreeting.lang}
                 >
