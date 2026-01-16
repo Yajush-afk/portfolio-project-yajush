@@ -45,9 +45,10 @@ export default function HomeSection() {
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex flex-col gap-2 md:gap-4 justify-center md:justify-start">
                         <span className="flex items-baseline justify-center md:justify-start">
                             <GreetingFlipper />
-                            <span>&nbsp;I am</span>
                         </span>
-                        <span className="text-primary block">Yajush</span>
+                        <span className="block">
+                            I am <span className="text-primary">Yajush</span>
+                        </span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                         Backend Engineer and AI/ML Engineer (learning)
