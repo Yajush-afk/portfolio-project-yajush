@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FiArrowRight, FiCode, FiClock, FiEdit3, FiAward } from "react-icons/fi";
+import { FiArrowRight, FiCode, FiClock, FiEdit3, FiAward, FiMessageSquare } from "react-icons/fi";
 import GreetingFlipper from "../GreetingFlipper";
 
 export default function HomeSection() {
@@ -112,29 +112,51 @@ export default function HomeSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false }}
                     transition={{ duration: 0.3, delay: 0.2 }}
-                    className="flex-1 bg-secondary/20 border border-border rounded-2xl p-5 flex flex-col justify-center text-center md:text-left"
+                    className="flex-1 bg-secondary/20 border border-border rounded-2xl p-6 flex flex-col justify-center text-center md:text-left relative overflow-hidden group"
                 >
-                    <blockquote className="text-lg md:text-xl font-medium italic text-muted-foreground/90">
+                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <FiMessageSquare className="text-6xl" />
+                    </div>
+                    <blockquote className="text-lg md:text-xl font-medium italic text-muted-foreground/90 relative z-10">
                         &quot;{quote}&quot;
                     </blockquote>
-                    <p className="text-xs text-muted-foreground mt-2 uppercase tracking-widest opacity-70">
+                    <p className="text-xs text-muted-foreground mt-3 uppercase tracking-widest opacity-70 relative z-10">
                         — Quote of the Day —
                     </p>
                 </motion.div>
 
-                {/* Clock */}
+                {/* Enhanced Clock Widget */}
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false }}
                     transition={{ duration: 0.3, delay: 0.25 }}
-                    className="w-full md:w-80 shrink-0 bg-card border border-border rounded-2xl p-5 flex flex-col items-center justify-center gap-2 shadow-sm"
+                    className="w-full md:w-80 shrink-0 bg-card border border-border rounded-2xl p-6 flex flex-col justify-between shadow-sm relative overflow-hidden"
                 >
-                    <div className="text-muted-foreground flex items-center gap-2 text-xs font-medium uppercase tracking-wider">
-                        <FiClock /> IST (India)
+                    {/* Header */}
+                    <div className="flex items-center justify-between w-full border-b border-border/50 pb-3 mb-2">
+                        <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                            <FiClock /> IST (India)
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
+                            <span className="text-[10px] font-semibold uppercase tracking-wider text-green-600/80">Online</span>
+                        </div>
                     </div>
-                    <div className="text-2xl md:text-3xl font-mono font-bold text-primary tracking-widest">
+
+                    {/* Time */}
+                    <div className="text-4xl md:text-5xl font-mono font-bold text-primary tracking-widest text-center py-2">
                         {time}
+                    </div>
+
+                    {/* Date Footer */}
+                    <div className="text-center border-t border-border/50 pt-3 mt-2">
+                        <p className="text-sm font-medium text-muted-foreground">
+                            {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+                        </p>
                     </div>
                 </motion.div>
             </div>
