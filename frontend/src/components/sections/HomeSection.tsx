@@ -42,12 +42,12 @@ export default function HomeSection() {
                     transition={{ duration: 0.3 }}
                     className="flex-1 space-y-6 text-center md:text-left w-full"
                 >
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-baseline justify-center md:justify-start">
-                        <span className="flex items-center">
+                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex flex-col gap-2 md:gap-4 justify-center md:justify-start">
+                        <span className="flex items-baseline justify-center md:justify-start">
                             <GreetingFlipper />
-                            <span>, I&apos;m</span>
+                            <span>&nbsp;I am</span>
                         </span>
-                        <span className="text-primary">Yajush</span>
+                        <span className="text-primary block">Yajush</span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                         Backend Engineer and AI/ML Engineer (learning)
@@ -87,7 +87,7 @@ export default function HomeSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: false }}
                     transition={{ duration: 0.3, delay: 0.1 }}
-                    className="relative w-48 h-48 md:w-80 md:h-80 rounded-full md:rounded-2xl overflow-hidden border-4 border-secondary shadow-2xl mx-auto shrink-0"
+                    className="relative w-48 h-48 md:w-80 md:h-80 rounded-full md:rounded-2xl overflow-hidden border-4 border-secondary shadow-2xl mx-auto md:ml-auto shrink-0"
                 >
                     {about?.image_url && (
                         <Image

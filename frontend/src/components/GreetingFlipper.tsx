@@ -26,7 +26,7 @@ export default function GreetingFlipper() {
     const currentGreeting = greetings[index];
 
     return (
-        <span className="inline-block text-right w-[140px] md:w-[220px]">
+        <span className="inline-block min-w-[120px]">
             <AnimatePresence mode="wait">
                 <motion.span
                     key={currentGreeting.text}

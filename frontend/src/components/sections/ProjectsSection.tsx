@@ -4,11 +4,16 @@ import { getProjectsData, getRandomExcuse, Project } from "@/lib/data";
 import { motion } from "framer-motion";
 import { FiCode, FiGithub, FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function ProjectsSection() {
     const projectsData = getProjectsData();
     const projects = projectsData.projects as Project[];
-    const excuse = getRandomExcuse();
+    const [excuse, setExcuse] = useState("");
+
+    useEffect(() => {
+        setExcuse(getRandomExcuse());
+    }, []);
 
     return (
         <section id="projects" className="min-h-screen flex flex-col justify-center py-20">
