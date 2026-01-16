@@ -40,7 +40,7 @@ export default function HomeSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: false }}
                     transition={{ duration: 0.3 }}
-                    className="flex-1 space-y-6 text-center md:text-left w-full pt-2"
+                    className="flex-1 space-y-6 text-center md:text-left w-full pt-2" 
                 >
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex flex-col gap-2 md:gap-4 justify-center md:justify-start">
                         <span className="flex items-baseline justify-center md:justify-start">
