@@ -24,15 +24,15 @@ export default function GreetingFlipper() {
     }, []);
 
     return (
-        <div className="relative h-[1.2em] w-32 md:w-48 overflow-hidden inline-flex items-center justify-start">
+        <div className="inline-flex items-center justify-start min-w-[120px]">
             <AnimatePresence mode="wait">
                 <motion.span
                     key={index}
-                    initial={{ y: 40, opacity: 0, rotateX: -90 }}
+                    initial={{ y: 20, opacity: 0, rotateX: -90 }}
                     animate={{ y: 0, opacity: 1, rotateX: 0 }}
-                    exit={{ y: -40, opacity: 0, rotateX: 90 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="absolute left-0 origin-center text-primary"
+                    exit={{ y: -20, opacity: 0, rotateX: 90 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="origin-center text-primary whitespace-nowrap"
                     style={{ backfaceVisibility: "hidden" }}
                 >
                     {greetings[index]}

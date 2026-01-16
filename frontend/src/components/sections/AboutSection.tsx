@@ -2,7 +2,7 @@
 
 import { getAboutData, getCurrentlyLearningData } from "@/lib/data";
 import { motion } from "framer-motion";
-import { FiCode, FiTerminal, FiSearch, FiLock, FiDownload, FiBriefcase } from "react-icons/fi";
+import { FiCode, FiTerminal, FiSearch, FiLock, FiDownload, FiBriefcase, FiZap } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import {
     SiHtml5, SiCss3, SiPython, SiCplusplus, SiFastapi, SiDjango, SiFlask,
@@ -171,24 +171,23 @@ export default function AboutSection() {
                                                 {role}
                                             </span>
                                         ))}
-                                        <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-sm font-medium flex items-center gap-1.5">
-                                            <span className="relative flex h-2 w-2">
-                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                                            </span>
-                                            Rapid Learner
-                                        </span>
                                     </div>
                                 </div>
 
-                                <a
-                                    href="https://drive.google.com/file/d/1ZZq_9GMh2_VlDqM2Og5r5A9rfA37AHs9/view?usp=sharing"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-full md:w-auto flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-bold hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/20 whitespace-nowrap"
-                                >
-                                    <FiDownload /> Download Resume
-                                </a>
+                                <div className="flex flex-col items-center gap-3 w-full md:w-auto">
+                                    <a
+                                        href="https://drive.google.com/file/d/1ZZq_9GMh2_VlDqM2Og5r5A9rfA37AHs9/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-bold hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/20 whitespace-nowrap"
+                                    >
+                                        <FiDownload /> Download Resume
+                                    </a>
+                                    <span className="px-3 py-1 bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                                        <FiZap className="fill-current" />
+                                        Rapid Learner
+                                    </span>
+                                </div>
                             </div>
                         </motion.div>
                     </div>
