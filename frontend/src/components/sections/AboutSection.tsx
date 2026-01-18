@@ -10,6 +10,7 @@ import {
     SiKaggle, SiGooglecolab, SiUbuntu, SiBrave, SiSpotify, SiGithub
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
+import { useSong } from "@/context/SongContext";
 
 const techStack = [
     {
@@ -65,26 +66,7 @@ const toolkit = [
 export default function AboutSection() {
     const about = getAboutData();
     const learning = getCurrentlyLearningData();
-    const [theme, setTheme] = useState("dark"); // Default to dark, will update on mount
-
-    useEffect(() => {
-        const updateTheme = () => {
-            if (document.documentElement.classList.contains("dark")) {
-                setTheme("dark");
-            } else {
-                setTheme("light");
-            }
-        };
-
-        // Initial check
-        updateTheme();
-
-        // Observer for class changes on html element
-        const observer = new MutationObserver(updateTheme);
-        observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-
-        return () => observer.disconnect();
-    }, []);
+    const { currentSong } = useSong();
 
     return (
         <section id="about" className="min-h-screen flex flex-col justify-center py-12">
@@ -112,9 +94,9 @@ export default function AboutSection() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: false }}
                             transition={{ delay: 0.1, duration: 0.3 }}
-                            className="bg-card border border-border rounded-xl overflow-hidden shadow-lg font-mono text-sm"
+                            className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl overflow-hidden shadow-xl font-mono text-sm"
                         >
-                            <div className="bg-secondary/50 px-4 py-2 border-b border-border flex items-center gap-2">
+                            <div className="bg-white/5 px-4 py-2 border-b border-white/10 flex items-center gap-2">
                                 <div className="w-3 h-3 rounded-full bg-red-500" />
                                 <div className="w-3 h-3 rounded-full bg-yellow-500" />
                                 <div className="w-3 h-3 rounded-full bg-green-500" />
@@ -133,7 +115,8 @@ export default function AboutSection() {
                                         <p><span className="font-bold text-primary">Host</span>: Yajush&apos;s Portfolio</p>
                                         <p><span className="font-bold text-primary">Uptime</span>: Till the coffee runs out</p>
                                         <p><span className="font-bold text-primary">Shell</span>: zsh 5.9</p>
-                                        <p><span className="font-bold text-primary">Theme</span>: {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}</p>
+                                        <p><span className="font-bold text-primary">Song Playing</span>: <span suppressHydrationWarning>{currentSong.title}</span></p>
+                                        <p><span className="font-bold text-primary">Artist</span>: <span suppressHydrationWarning>{currentSong.artist}</span></p>
                                     </div>
                                 </div>
                                 <div className="pt-2 animate-pulse">
@@ -148,7 +131,7 @@ export default function AboutSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false }}
                             transition={{ delay: 0.2, duration: 0.3 }}
-                            className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                            className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all"
                         >
                             <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
                                 <div className="space-y-4 flex-1">
@@ -161,12 +144,12 @@ export default function AboutSection() {
                                             Hire Me As:
                                         </h3>
                                     </div>
-                                    
+
                                     <div className="flex flex-wrap gap-2">
                                         {["Backend Engineer", "ML Intern", "Researcher"].map((role) => (
-                                            <span 
-                                                key={role} 
-                                                className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium border border-border/50"
+                                            <span
+                                                key={role}
+                                                className="px-3 py-1 bg-white/10 text-foreground rounded-full text-sm font-medium border border-white/10"
                                             >
                                                 {role}
                                             </span>
@@ -207,7 +190,7 @@ export default function AboutSection() {
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: false }}
                                         transition={{ delay: idx * 0.05, duration: 0.3 }}
-                                        className="bg-card/50 border border-border rounded-lg p-3 hover:border-primary/30 transition-colors"
+                                        className="backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-3 hover:border-primary/30 transition-colors shadow-lg"
                                     >
                                         <h4 className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">{stack.category}</h4>
                                         <div className="flex flex-wrap gap-2">
@@ -239,7 +222,7 @@ export default function AboutSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false }}
                                 transition={{ delay: 0.1, duration: 0.3 }}
-                                className="bg-secondary/30 border border-border rounded-xl p-4 flex items-center justify-center"
+                                className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-center shadow-xl"
                             >
                                 <div className="flex gap-3 flex-wrap justify-center">
                                     {toolkit.map((tool, idx) => (
@@ -279,7 +262,7 @@ export default function AboutSection() {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: false }}
                                         transition={{ delay: 0.2 + (index * 0.05), duration: 0.3 }}
-                                        className="bg-card border border-border px-4 py-2 rounded-lg text-sm font-medium shadow-sm"
+                                        className="backdrop-blur-md bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm font-medium shadow-sm"
                                     >
                                         {item}
                                     </motion.div>

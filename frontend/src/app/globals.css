@@ -54,99 +54,128 @@ html {
 }
 
 :root {
-  /* Dark Mode (Default) */
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-
-  --card: 222 47% 11%;
-  --card-foreground: 0 0% 100%;
-
-  --popover: 222 47% 11%;
-  --popover-foreground: 0 0% 100%;
-
-  --primary: 217 91% 60%;
-  --primary-foreground: 0 0% 100%;
-
-  --secondary: 217 19% 27%;
-  --secondary-foreground: 0 0% 100%;
-
-  --muted: 217 19% 27%;
-  --muted-foreground: 215 20.2% 65.1%;
-
-  --accent: 217 91% 60%;
-  --accent-foreground: 0 0% 100%;
-
+  /* Default Theme (Heat Waves - Purple/Pink) */
+  --background: 260 50% 10%;
+  --foreground: 300 20% 95%;
+  --primary: 300 70% 60%;
+  --primary-foreground: 260 50% 10%;
+  --secondary: 260 30% 20%;
+  --secondary-foreground: 300 20% 95%;
+  --muted: 260 30% 20%;
+  --muted-foreground: 260 20% 70%;
+  --accent: 320 60% 55%;
+  --accent-foreground: 300 20% 95%;
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-
-  --border: 217 19% 27%;
-  --input: 217 19% 27%;
-  --ring: 217 91% 60%;
-
+  --destructive-foreground: 210 40% 98%;
+  --border: 260 30% 20%;
+  --input: 260 30% 20%;
+  --ring: 300 70% 60%;
   --radius: 0.5rem;
 }
 
-.light {
-  /* Light Mode */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
-
-  --card: 0 0% 98%;
-  --card-foreground: 0 0% 0%;
-
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
-
-  --primary: 24 95% 53%;
+[data-theme="heat-waves"] {
+  /* Glass Animals - Dreamland (Vaporwave Purple + Pink) */
+  --background: 260 60% 90%; /* Soft Lavender/Pinkish Purple */
+  --foreground: 260 50% 20%; /* Deep Purple */
+  --primary: 320 90% 60%; /* Hot Pink */
   --primary-foreground: 0 0% 100%;
-
-  --secondary: 240 5% 96%;
-  --secondary-foreground: 240 5.9% 10%;
-
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-
-  --accent: 24 95% 53%;
+  --secondary: 260 40% 80%;
+  --secondary-foreground: 260 50% 20%;
+  --muted: 260 30% 80%;
+  --muted-foreground: 260 30% 40%;
+  --accent: 300 80% 60%; /* Magenta */
   --accent-foreground: 0 0% 100%;
-
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 24 95% 53%;
+  --border: 260 40% 70%;
+  --input: 260 40% 70%;
+  --ring: 320 90% 60%;
 }
 
-.dark {
-  /* Dark Mode (Explicit) */
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-
-  --card: 222 47% 11%;
-  --card-foreground: 0 0% 100%;
-
-  --popover: 222 47% 11%;
-  --popover-foreground: 0 0% 100%;
-
-  --primary: 217 91% 60%;
+[data-theme="shape-of-you"] {
+  /* Ed Sheeran - Divide (Bright Blue + Black) */
+  --background: 195 80% 60%; /* Divide Blue */
+  --foreground: 0 0% 10%; /* Black */
+  --primary: 0 0% 10%; /* Black */
   --primary-foreground: 0 0% 100%;
-
-  --secondary: 217 19% 27%;
+  --secondary: 195 60% 50%;
   --secondary-foreground: 0 0% 100%;
-
-  --muted: 217 19% 27%;
-  --muted-foreground: 215 20.2% 65.1%;
-
-  --accent: 217 91% 60%;
+  --muted: 195 40% 50%;
+  --muted-foreground: 195 30% 20%;
+  --accent: 0 0% 20%;
   --accent-foreground: 0 0% 100%;
-
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-
-  --border: 217 19% 27%;
-  --input: 217 19% 27%;
-  --ring: 217 91% 60%;
+  --border: 195 50% 40%;
+  --input: 195 50% 40%;
+  --ring: 0 0% 10%;
 }
+
+[data-theme="night-changes"] {
+  /* Black/Grey - One Direction Aesthetic */
+  --background: 0 0% 5%;
+  --foreground: 0 0% 95%;
+  --primary: 0 0% 80%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 40%;
+  --accent-foreground: 0 0% 95%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 0 0% 80%;
+}
+
+[data-theme="yellow"] {
+  /* Coldplay - Parachutes (Black + Golden Yellow) */
+  --background: 0 0% 5%; /* Deep Black */
+  --foreground: 45 100% 90%; /* Pale Yellow/White */
+  --primary: 40 100% 50%; /* Golden Yellow */
+  --primary-foreground: 0 0% 5%;
+  --secondary: 40 20% 20%; /* Dark Yellowish Grey */
+  --secondary-foreground: 45 100% 90%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 40 50% 60%;
+  --accent: 35 100% 50%; /* Orange-Yellow */
+  --accent-foreground: 0 0% 5%;
+  --border: 40 50% 30%;
+  --input: 40 50% 30%;
+  --ring: 40 100% 50%;
+}
+
+[data-theme="i-like-me-better"] {
+  /* Lauv - I met you when I was 18 (White + Blue) */
+  --background: 0 0% 98%; /* White */
+  --foreground: 220 60% 10%; /* Dark Blue text */
+  --primary: 220 80% 50%; /* Lauv Blue */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 20% 90%;
+  --secondary-foreground: 220 60% 10%;
+  --muted: 220 10% 90%;
+  --muted-foreground: 220 30% 50%;
+  --accent: 220 70% 45%;
+  --accent-foreground: 0 0% 100%;
+  --border: 220 20% 85%;
+  --input: 220 20% 85%;
+  --ring: 220 80% 50%;
+}
+
+[data-theme="co2"] {
+  /* Prateek Kuhad - The Way That Lovers Do (Cream + Red + Black) */
+  --background: 48 60% 88%; /* Cream/Beige from album background */
+  --foreground: 0 0% 10%; /* Soft Black */
+  --primary: 355 70% 50%; /* Deep Red from jacket */
+  --primary-foreground: 48 60% 88%;
+  --secondary: 355 30% 90%; /* Light Red/Pinkish */
+  --secondary-foreground: 0 0% 10%;
+  --muted: 48 30% 80%;
+  --muted-foreground: 0 0% 40%;
+  --accent: 355 70% 50%;
+  --accent-foreground: 48 60% 88%;
+  --border: 355 30% 80%;
+  --input: 355 30% 80%;
+  --ring: 355 70% 50%;
+}
+
+/* Removed special gradient to match the clean album art aesthetic */
 
 @layer base {
   * {

@@ -105,7 +105,7 @@ export default function SocialSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ delay: 0.3, duration: 0.3 }}
-                className="mt-12 p-8 bg-secondary/20 border border-border rounded-2xl text-center space-y-6 max-w-2xl mx-auto w-full"
+                className="mt-12 p-8 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl text-center space-y-6 max-w-2xl mx-auto w-full shadow-xl"
             >
                 <div className="space-y-2">
                     <h3 className="text-2xl font-bold">Ready to Collaborate?</h3>

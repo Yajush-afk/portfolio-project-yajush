@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { SongProvider } from "@/context/SongContext";
+import SongPlayer from "@/components/SongPlayer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,28 +28,28 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var localTheme = localStorage.getItem('theme');
-                  var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  var isDark = localTheme === 'dark' || (!localTheme && supportDarkMode);
-                  
-                  if (isDark) {
-                    document.documentElement.classList.add('dark');
-                    document.documentElement.classList.remove('light');
-                    document.documentElement.style.colorScheme = 'dark';
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                    document.documentElement.classList.add('light');
-                    document.documentElement.style.colorScheme = 'light';
+                  var savedIndex = localStorage.getItem('currentSongIndex');
+                  var theme = 'heat-waves'; // Default
+                  if (savedIndex !== null) {
+                    var index = parseInt(savedIndex, 10);
+                    var themes = ['heat-waves', 'shape-of-you', 'night-changes', 'yellow', 'i-like-me-better', 'co2'];
+                    if (index >= 0 && index < themes.length) {
+                      theme = themes[index];
+                    }
                   }
+                  document.documentElement.setAttribute('data-theme', theme);
                 } catch (e) {}
               })();
             `,
           }}
         />
-        <Navbar />
-        <main className="min-h-screen pt-16 container mx-auto px-4 py-8">
-          {children}
-        </main>
+        <SongProvider>
+          <SongPlayer />
+          <Navbar />
+          <main className="min-h-screen pt-16 container mx-auto px-4 py-8">
+            {children}
+          </main>
+        </SongProvider>
       </body>
     </html>
   );

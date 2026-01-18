@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -97,7 +96,6 @@ export default function Navbar() {
                             );
                         })}
                     </div>
-                    <ThemeToggle />
                 </div>
             </div>
         </nav>
