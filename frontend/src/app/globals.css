@@ -54,36 +54,40 @@ html {
 }
 
 :root {
-  /* Default Theme (Heat Waves - Purple/Pink) */
-  --background: 260 50% 10%;
-  --foreground: 300 20% 95%;
-  --primary: 300 70% 60%;
-  --primary-foreground: 260 50% 10%;
-  --secondary: 260 30% 20%;
-  --secondary-foreground: 300 20% 95%;
-  --muted: 260 30% 20%;
-  --muted-foreground: 260 20% 70%;
-  --accent: 320 60% 55%;
-  --accent-foreground: 300 20% 95%;
+  /* Default Theme (God's Plan - Monochrome Grey/Black) */
+  --background: 0 0% 10%; /* Dark Grey */
+  --foreground: 0 0% 90%; /* Off White */
+  --primary: 0 0% 100%; /* White */
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 20%; /* Lighter Grey */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 40%; /* Mid Grey */
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
-  --border: 260 30% 20%;
-  --input: 260 30% 20%;
-  --ring: 300 70% 60%;
+  --border: 0 0% 30%;
+  --input: 0 0% 30%;
+  --ring: 0 0% 100%;
   --radius: 0.5rem;
 }
 
 [data-theme="heat-waves"] {
   /* Glass Animals - Dreamland (Vaporwave Purple + Pink) */
-  --background: 260 60% 90%; /* Soft Lavender/Pinkish Purple */
-  --foreground: 260 50% 20%; /* Deep Purple */
-  --primary: 320 90% 60%; /* Hot Pink */
+  --background: 260 60% 90%;
+  /* Soft Lavender/Pinkish Purple */
+  --foreground: 260 50% 20%;
+  /* Deep Purple */
+  --primary: 320 90% 60%;
+  /* Hot Pink */
   --primary-foreground: 0 0% 100%;
   --secondary: 260 40% 80%;
   --secondary-foreground: 260 50% 20%;
   --muted: 260 30% 80%;
   --muted-foreground: 260 30% 40%;
-  --accent: 300 80% 60%; /* Magenta */
+  --accent: 300 80% 60%;
+  /* Magenta */
   --accent-foreground: 0 0% 100%;
   --border: 260 40% 70%;
   --input: 260 40% 70%;
@@ -92,9 +96,12 @@ html {
 
 [data-theme="shape-of-you"] {
   /* Ed Sheeran - Divide (Bright Blue + Black) */
-  --background: 195 80% 60%; /* Divide Blue */
-  --foreground: 0 0% 10%; /* Black */
-  --primary: 0 0% 10%; /* Black */
+  --background: 195 80% 60%;
+  /* Divide Blue */
+  --foreground: 0 0% 10%;
+  /* Black */
+  --primary: 0 0% 10%;
+  /* Black */
   --primary-foreground: 0 0% 100%;
   --secondary: 195 60% 50%;
   --secondary-foreground: 0 0% 100%;
@@ -126,15 +133,20 @@ html {
 
 [data-theme="yellow"] {
   /* Coldplay - Parachutes (Black + Golden Yellow) */
-  --background: 0 0% 5%; /* Deep Black */
-  --foreground: 45 100% 90%; /* Pale Yellow/White */
-  --primary: 40 100% 50%; /* Golden Yellow */
+  --background: 0 0% 5%;
+  /* Deep Black */
+  --foreground: 45 100% 90%;
+  /* Pale Yellow/White */
+  --primary: 40 100% 50%;
+  /* Golden Yellow */
   --primary-foreground: 0 0% 5%;
-  --secondary: 40 20% 20%; /* Dark Yellowish Grey */
+  --secondary: 40 20% 20%;
+  /* Dark Yellowish Grey */
   --secondary-foreground: 45 100% 90%;
   --muted: 0 0% 20%;
   --muted-foreground: 40 50% 60%;
-  --accent: 35 100% 50%; /* Orange-Yellow */
+  --accent: 35 100% 50%;
+  /* Orange-Yellow */
   --accent-foreground: 0 0% 5%;
   --border: 40 50% 30%;
   --input: 40 50% 30%;
@@ -143,9 +155,12 @@ html {
 
 [data-theme="i-like-me-better"] {
   /* Lauv - I met you when I was 18 (White + Blue) */
-  --background: 0 0% 98%; /* White */
-  --foreground: 220 60% 10%; /* Dark Blue text */
-  --primary: 220 80% 50%; /* Lauv Blue */
+  --background: 0 0% 98%;
+  /* White */
+  --foreground: 220 60% 10%;
+  /* Dark Blue text */
+  --primary: 220 80% 50%;
+  /* Lauv Blue */
   --primary-foreground: 0 0% 100%;
   --secondary: 220 20% 90%;
   --secondary-foreground: 220 60% 10%;
@@ -160,11 +175,15 @@ html {
 
 [data-theme="co2"] {
   /* Prateek Kuhad - The Way That Lovers Do (Cream + Red + Black) */
-  --background: 48 60% 88%; /* Cream/Beige from album background */
-  --foreground: 0 0% 10%; /* Soft Black */
-  --primary: 355 70% 50%; /* Deep Red from jacket */
+  --background: 48 60% 88%;
+  /* Cream/Beige from album background */
+  --foreground: 0 0% 10%;
+  /* Soft Black */
+  --primary: 355 70% 50%;
+  /* Deep Red from jacket */
   --primary-foreground: 48 60% 88%;
-  --secondary: 355 30% 90%; /* Light Red/Pinkish */
+  --secondary: 355 30% 90%;
+  /* Light Red/Pinkish */
   --secondary-foreground: 0 0% 10%;
   --muted: 48 30% 80%;
   --muted-foreground: 0 0% 40%;
@@ -173,6 +192,78 @@ html {
   --border: 355 30% 80%;
   --input: 355 30% 80%;
   --ring: 355 70% 50%;
+}
+
+[data-theme="starboy"] {
+  /* The Weeknd - Starboy (Darker Red + Muted Gold + Deep Blue) */
+  --background: 350 60% 15%; /* Much Darker, less saturated Red */
+  --foreground: 45 80% 85%; /* Muted Gold/Pale Yellow */
+  --primary: 350 70% 40%; /* Dark Red */
+  --primary-foreground: 45 80% 85%;
+  --secondary: 240 50% 20%; /* Deep Muted Blue */
+  --secondary-foreground: 45 80% 85%;
+  --muted: 350 30% 20%;
+  --muted-foreground: 350 20% 60%;
+  --accent: 240 60% 40%; /* Muted Blue Accent */
+  --accent-foreground: 45 80% 85%;
+  --border: 350 40% 25%;
+  --input: 350 40% 25%;
+  --ring: 350 70% 40%;
+}
+
+[data-theme="gods-plan"] {
+  /* Drake - Scorpion (Monochrome Grey/Black) */
+  --background: 0 0% 10%; /* Dark Grey */
+  --foreground: 0 0% 90%; /* Off White */
+  --primary: 0 0% 100%; /* White */
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 20%; /* Lighter Grey */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 40%; /* Mid Grey */
+  --accent-foreground: 0 0% 100%;
+  --border: 0 0% 30%;
+  --input: 0 0% 30%;
+  --ring: 0 0% 100%;
+}
+
+[data-theme="peaches"] {
+  /* Justin Bieber - Justice (Shades of Green) */
+  --background: 140 40% 85%; /* Soft Mint/Sage Green */
+  --foreground: 150 80% 15%; /* Deep Forest Green */
+  --primary: 150 60% 40%; /* Medium Green */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 140 30% 75%; /* Muted Green */
+  --secondary-foreground: 150 80% 15%;
+  --muted: 140 20% 70%;
+  --muted-foreground: 150 40% 40%;
+  --accent: 160 50% 45%; /* Teal-ish Green */
+  --accent-foreground: 0 0% 100%;
+  --border: 150 30% 60%;
+  --input: 150 30% 60%;
+  --ring: 150 60% 40%;
+}
+
+[data-theme="birds"] {
+  /* Billie Eilish - Hit Me Hard and Soft (Deep Underwater Blue) */
+  --background: 220 60% 15%;
+  /* Deep Blue */
+  --foreground: 0 0% 95%;
+  /* White */
+  --primary: 200 80% 60%;
+  /* Light Blue */
+  --primary-foreground: 220 60% 10%;
+  --secondary: 220 40% 25%;
+  /* Mid Blue */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 220 40% 25%;
+  --muted-foreground: 200 40% 70%;
+  --accent: 200 80% 60%;
+  --accent-foreground: 220 60% 10%;
+  --border: 220 50% 30%;
+  --input: 220 50% 30%;
+  --ring: 200 80% 60%;
 }
 
 /* Removed special gradient to match the clean album art aesthetic */

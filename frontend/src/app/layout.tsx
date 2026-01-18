@@ -29,10 +29,10 @@ export default function RootLayout({
               (function() {
                 try {
                   var savedIndex = localStorage.getItem('currentSongIndex');
-                  var theme = 'heat-waves'; // Default
+                  var theme = 'gods-plan'; // Default
                   if (savedIndex !== null) {
                     var index = parseInt(savedIndex, 10);
-                    var themes = ['heat-waves', 'shape-of-you', 'night-changes', 'yellow', 'i-like-me-better', 'co2'];
+                    var themes = ['gods-plan', 'heat-waves', 'shape-of-you', 'night-changes', 'yellow', 'i-like-me-better', 'co2', 'starboy', 'peaches', 'birds'];
                     if (index >= 0 && index < themes.length) {
                       theme = themes[index];
                     }

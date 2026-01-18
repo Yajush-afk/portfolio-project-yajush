@@ -9,9 +9,19 @@ export type Song = {
     src: string;
     theme: string;
     image: string;
+    about: string;
 };
 
 const songs: Song[] = [
+    {
+        id: "gods-plan",
+        title: "God's Plan",
+        artist: "Drake",
+        src: "/songs/gods-plan.mp3",
+        theme: "gods-plan",
+        image: "/album-art/gods-plan.jpg",
+        about: "https://en.wikipedia.org/wiki/God%27s_Plan_(song)",
+    },
     {
         id: "heat-waves",
         title: "Heat Waves",
@@ -19,6 +29,7 @@ const songs: Song[] = [
         src: "/songs/heat-waves.mp3",
         theme: "heat-waves",
         image: "/album-art/heat-waves.jpg",
+        about: "https://en.wikipedia.org/wiki/Heat_Waves",
     },
     {
         id: "shape-of-you",
@@ -27,6 +38,7 @@ const songs: Song[] = [
         src: "/songs/shape-of-you.mp3",
         theme: "shape-of-you",
         image: "/album-art/shape-of-you.jpg",
+        about: "https://en.wikipedia.org/wiki/Shape_of_You",
     },
     {
         id: "night-changes",
@@ -35,6 +47,7 @@ const songs: Song[] = [
         src: "/songs/night-changes.mp3",
         theme: "night-changes",
         image: "/album-art/night-changes.jpg",
+        about: "https://en.wikipedia.org/wiki/Night_Changes",
     },
     {
         id: "yellow",
@@ -43,6 +56,7 @@ const songs: Song[] = [
         src: "/songs/yellow.mp3",
         theme: "yellow",
         image: "/album-art/yellow.jpg",
+        about: "https://en.wikipedia.org/wiki/Yellow_(Coldplay_song)",
     },
     {
         id: "i-like-me-better",
@@ -51,6 +65,7 @@ const songs: Song[] = [
         src: "/songs/i-like-me-better.mp3",
         theme: "i-like-me-better",
         image: "/album-art/i-like-me-better.jpg",
+        about: "https://en.wikipedia.org/wiki/I_Like_Me_Better",
     },
     {
         id: "co2",
@@ -59,6 +74,34 @@ const songs: Song[] = [
         src: "/songs/co2.mp3",
         theme: "co2",
         image: "/album-art/co2.jpg",
+        about: "https://en.wikipedia.org/wiki/Prateek_Kuhad",
+    },
+    {
+        id: "starboy",
+        title: "Starboy",
+        artist: "The Weeknd",
+        src: "/songs/starboy.mp3",
+        theme: "starboy",
+        image: "/album-art/starboy.jpg",
+        about: "https://en.wikipedia.org/wiki/Starboy_(song)",
+    },
+    {
+        id: "peaches",
+        title: "Peaches",
+        artist: "Justin Bieber",
+        src: "/songs/peaches.mp3",
+        theme: "peaches",
+        image: "/album-art/peaches.jpg",
+        about: "https://en.wikipedia.org/wiki/Peaches_(Justin_Bieber_song)",
+    },
+    {
+        id: "birds",
+        title: "Birds of a Feather",
+        artist: "Billie Eilish",
+        src: "/songs/birds.mp3",
+        theme: "birds",
+        image: "/album-art/birds.jpg",
+        about: "https://en.wikipedia.org/wiki/Birds_of_a_Feather_(Billie_Eilish_song)",
     },
 ];
 
@@ -194,12 +237,12 @@ export function SongProvider({ children }: { children: React.ReactNode }) {
     };
 
     return (
-        <SongContext.Provider value={{ 
-            currentSong, 
-            isPlaying, 
-            togglePlay, 
-            playNext, 
-            playPrev, 
+        <SongContext.Provider value={{
+            currentSong,
+            isPlaying,
+            togglePlay,
+            playNext,
+            playPrev,
             isInitialized,
             currentTime,
             duration,
