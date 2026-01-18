@@ -117,6 +117,8 @@ interface SongContextType {
     isMuted: boolean;
     toggleMute: () => void;
     seek: (time: number) => void;
+    songs: Song[];
+    playSong: (index: number) => void;
 }
 
 const SongContext = createContext<SongContextType | undefined>(undefined);
@@ -236,6 +238,13 @@ export function SongProvider({ children }: { children: React.ReactNode }) {
         setIsPlaying(true);
     };
 
+    const playSong = (index: number) => {
+        if (index >= 0 && index < songs.length) {
+            setCurrentIndex(index);
+            setIsPlaying(true);
+        }
+    };
+
     return (
         <SongContext.Provider value={{
             currentSong,
@@ -248,7 +257,9 @@ export function SongProvider({ children }: { children: React.ReactNode }) {
             duration,
             isMuted,
             toggleMute,
-            seek
+            seek,
+            songs,
+            playSong
         }}>
             {children}
         </SongContext.Provider>

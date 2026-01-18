@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Gochi_Hand } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { SongProvider } from "@/context/SongContext";
 import SongPlayer from "@/components/SongPlayer";
 
 const inter = Inter({ subsets: ["latin"] });
+const gochiHand = Gochi_Hand({ subsets: ["latin"], weight: "400", variable: "--font-gochi" });
 
 export const metadata: Metadata = {
   title: "Yajush Srivastava | Portfolio",
@@ -22,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${gochiHand.variable}`}>
         <script
           dangerouslySetInnerHTML={{
             __html: `
