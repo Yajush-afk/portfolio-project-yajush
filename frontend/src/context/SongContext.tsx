@@ -58,15 +58,7 @@ const songs: Song[] = [
         image: "/album-art/yellow.jpg",
         about: "https://en.wikipedia.org/wiki/Yellow_(Coldplay_song)",
     },
-    {
-        id: "i-like-me-better",
-        title: "I Like Me Better",
-        artist: "Lauv",
-        src: "/songs/i-like-me-better.mp3",
-        theme: "i-like-me-better",
-        image: "/album-art/i-like-me-better.jpg",
-        about: "https://en.wikipedia.org/wiki/I_Like_Me_Better",
-    },
+
     {
         id: "co2",
         title: "CO2",
@@ -76,33 +68,7 @@ const songs: Song[] = [
         image: "/album-art/co2.jpg",
         about: "https://en.wikipedia.org/wiki/Prateek_Kuhad",
     },
-    {
-        id: "starboy",
-        title: "Starboy",
-        artist: "The Weeknd",
-        src: "/songs/starboy.mp3",
-        theme: "starboy",
-        image: "/album-art/starboy.jpg",
-        about: "https://en.wikipedia.org/wiki/Starboy_(song)",
-    },
-    {
-        id: "peaches",
-        title: "Peaches",
-        artist: "Justin Bieber",
-        src: "/songs/peaches.mp3",
-        theme: "peaches",
-        image: "/album-art/peaches.jpg",
-        about: "https://en.wikipedia.org/wiki/Peaches_(Justin_Bieber_song)",
-    },
-    {
-        id: "birds",
-        title: "Birds of a Feather",
-        artist: "Billie Eilish",
-        src: "/songs/birds.mp3",
-        theme: "birds",
-        image: "/album-art/birds.jpg",
-        about: "https://en.wikipedia.org/wiki/Birds_of_a_Feather_(Billie_Eilish_song)",
-    },
+
 ];
 
 interface SongContextType {
@@ -116,6 +82,8 @@ interface SongContextType {
     duration: number;
     isMuted: boolean;
     toggleMute: () => void;
+    volume: number;
+    setVolume: (volume: number) => void;
     seek: (time: number) => void;
     songs: Song[];
     playSong: (index: number) => void;
@@ -141,6 +109,7 @@ export function SongProvider({ children }: { children: React.ReactNode }) {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [isMuted, setIsMuted] = useState(false);
+    const [volume, setVolumeState] = useState(1);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     const currentSong = songs[currentIndex];
@@ -212,9 +181,24 @@ export function SongProvider({ children }: { children: React.ReactNode }) {
         }
     }, [isMuted]);
 
+    // Handle Volume
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.volume = volume;
+        }
+    }, [volume]);
+
     const togglePlay = () => setIsPlaying(!isPlaying);
 
     const toggleMute = () => setIsMuted(!isMuted);
+
+    const setVolume = (newVolume: number) => {
+        const clampedVolume = Math.max(0, Math.min(1, newVolume));
+        setVolumeState(clampedVolume);
+        if (clampedVolume > 0 && isMuted) {
+            setIsMuted(false);
+        }
+    };
 
     const seek = (time: number) => {
         if (audioRef.current) {
@@ -257,6 +241,8 @@ export function SongProvider({ children }: { children: React.ReactNode }) {
             duration,
             isMuted,
             toggleMute,
+            volume,
+            setVolume,
             seek,
             songs,
             playSong

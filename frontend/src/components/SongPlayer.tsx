@@ -8,7 +8,7 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
 export default function SongPlayer() {
-    const { currentSong, isPlaying, togglePlay, playNext, playPrev, isInitialized, currentTime, duration, isMuted, toggleMute, seek, songs, playSong } = useSong();
+    const { currentSong, isPlaying, togglePlay, playNext, playPrev, isInitialized, currentTime, duration, isMuted, toggleMute, seek, songs, playSong, volume, setVolume } = useSong();
     const [showRipple, setShowRipple] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const [showSongList, setShowSongList] = useState(false);
@@ -118,15 +118,15 @@ export default function SongPlayer() {
                         </div>
 
                         {/* My Top 10 Button */}
-                        <div className="absolute -right-28 top-28 hidden md:flex flex-col items-start pointer-events-auto z-50">
+                        <div className="absolute -right-28 top-24 hidden md:flex flex-col items-start pointer-events-auto z-50">
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     setShowSongList(true);
                                 }}
-                                className="font-[family-name:var(--font-gochi)] text-2xl text-foreground -rotate-12 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
+                                className="font-[family-name:var(--font-gochi)] text-3xl text-foreground -rotate-12 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
                             >
-                                My top 10
+                                My top 6
                             </button>
                         </div>
 
@@ -252,9 +252,36 @@ export default function SongPlayer() {
                                     {/* Next & Mute Group */}
                                     <div className="flex justify-start items-center gap-4">
                                         <button onClick={playNext} className="p-3 hover:bg-white/10 rounded-full transition-colors text-white"><FiSkipForward size={28} /></button>
-                                        <button onClick={toggleMute} className={`p-3 rounded-full transition-colors ${isMuted ? 'text-red-400 bg-red-400/10' : 'text-white hover:bg-white/10'}`}>
-                                            {isMuted ? <FiVolumeX size={24} /> : <FiVolume2 size={24} />}
-                                        </button>
+
+                                        {/* Volume Control */}
+                                        <div className="relative group flex justify-center">
+                                            {/* Slider Popup Wrapper (Hover Bridge) */}
+                                            <div className="absolute bottom-full hidden group-hover:flex flex-col items-center justify-end pb-4 z-50">
+                                                {/* Visual Slider Container */}
+                                                <div className="bg-black/80 backdrop-blur-xl p-3 rounded-2xl border border-white/10 shadow-xl w-10 h-32 flex flex-col items-center justify-center">
+                                                    <div className="relative w-1.5 h-24 bg-white/20 rounded-full overflow-hidden">
+                                                        <div
+                                                            className="absolute bottom-0 left-0 w-full bg-white rounded-full transition-all duration-75"
+                                                            style={{ height: `${(isMuted ? 0 : volume) * 100}%` }}
+                                                        />
+                                                        <input
+                                                            type="range"
+                                                            min={0}
+                                                            max={1}
+                                                            step={0.01}
+                                                            value={isMuted ? 0 : volume}
+                                                            onChange={(e) => setVolume(parseFloat(e.target.value))}
+                                                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                                            style={{ writingMode: 'vertical-lr', direction: 'rtl' } as any}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button onClick={toggleMute} className={`p-3 rounded-full transition-colors ${isMuted ? 'text-red-400 bg-red-400/10' : 'text-white hover:bg-white/10'}`}>
+                                                {isMuted ? <FiVolumeX size={24} /> : <FiVolume2 size={24} />}
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -282,7 +309,7 @@ export default function SongPlayer() {
                         >
                             {/* Header */}
                             <div className="p-4 border-b border-white/10 flex justify-between items-center bg-black/20">
-                                <h2 className="text-lg font-bold text-white">My Top 10</h2>
+                                <h2 className="text-lg font-bold text-white">My Top 6</h2>
                                 <button
                                     onClick={() => setShowSongList(false)}
                                     className="p-1.5 hover:bg-white/10 rounded-full transition-colors text-white"
