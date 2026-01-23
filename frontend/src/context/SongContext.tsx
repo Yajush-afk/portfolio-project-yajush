@@ -40,15 +40,7 @@ const songs: Song[] = [
         image: "/album-art/shape-of-you.jpg",
         about: "https://en.wikipedia.org/wiki/Shape_of_You",
     },
-    {
-        id: "night-changes",
-        title: "Night Changes",
-        artist: "One Direction",
-        src: "/songs/night-changes.mp3",
-        theme: "night-changes",
-        image: "/album-art/night-changes.jpg",
-        about: "https://en.wikipedia.org/wiki/Night_Changes",
-    },
+
     {
         id: "yellow",
         title: "Yellow",

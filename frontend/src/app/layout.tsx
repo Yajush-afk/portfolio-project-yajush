@@ -33,7 +33,7 @@ export default function RootLayout({
                   var theme = 'gods-plan'; // Default
                   if (savedIndex !== null) {
                     var index = parseInt(savedIndex, 10);
-                    var themes = ['gods-plan', 'heat-waves', 'shape-of-you', 'night-changes', 'yellow', 'i-like-me-better', 'co2', 'starboy', 'peaches', 'birds'];
+                    var themes = ['gods-plan', 'heat-waves', 'shape-of-you', 'yellow', 'co2'];
                     if (index >= 0 && index < themes.length) {
                       theme = themes[index];
                     }

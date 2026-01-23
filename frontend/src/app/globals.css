@@ -114,22 +114,7 @@ html {
   --ring: 0 0% 10%;
 }
 
-[data-theme="night-changes"] {
-  /* Black/Grey - One Direction Aesthetic */
-  --background: 0 0% 5%;
-  --foreground: 0 0% 95%;
-  --primary: 0 0% 80%;
-  --primary-foreground: 0 0% 5%;
-  --secondary: 0 0% 15%;
-  --secondary-foreground: 0 0% 95%;
-  --muted: 0 0% 15%;
-  --muted-foreground: 0 0% 60%;
-  --accent: 0 0% 40%;
-  --accent-foreground: 0 0% 95%;
-  --border: 0 0% 20%;
-  --input: 0 0% 20%;
-  --ring: 0 0% 80%;
-}
+
 
 [data-theme="yellow"] {
   /* Coldplay - Parachutes (Black + Golden Yellow) */
@@ -153,25 +138,7 @@ html {
   --ring: 40 100% 50%;
 }
 
-[data-theme="i-like-me-better"] {
-  /* Lauv - I met you when I was 18 (White + Blue) */
-  --background: 0 0% 98%;
-  /* White */
-  --foreground: 220 60% 10%;
-  /* Dark Blue text */
-  --primary: 220 80% 50%;
-  /* Lauv Blue */
-  --primary-foreground: 0 0% 100%;
-  --secondary: 220 20% 90%;
-  --secondary-foreground: 220 60% 10%;
-  --muted: 220 10% 90%;
-  --muted-foreground: 220 30% 50%;
-  --accent: 220 70% 45%;
-  --accent-foreground: 0 0% 100%;
-  --border: 220 20% 85%;
-  --input: 220 20% 85%;
-  --ring: 220 80% 50%;
-}
+
 
 [data-theme="co2"] {
   /* Prateek Kuhad - The Way That Lovers Do (Cream + Red + Black) */
@@ -194,22 +161,7 @@ html {
   --ring: 355 70% 50%;
 }
 
-[data-theme="starboy"] {
-  /* The Weeknd - Starboy (Darker Red + Muted Gold + Deep Blue) */
-  --background: 350 60% 15%; /* Much Darker, less saturated Red */
-  --foreground: 45 80% 85%; /* Muted Gold/Pale Yellow */
-  --primary: 350 70% 40%; /* Dark Red */
-  --primary-foreground: 45 80% 85%;
-  --secondary: 240 50% 20%; /* Deep Muted Blue */
-  --secondary-foreground: 45 80% 85%;
-  --muted: 350 30% 20%;
-  --muted-foreground: 350 20% 60%;
-  --accent: 240 60% 40%; /* Muted Blue Accent */
-  --accent-foreground: 45 80% 85%;
-  --border: 350 40% 25%;
-  --input: 350 40% 25%;
-  --ring: 350 70% 40%;
-}
+
 
 [data-theme="gods-plan"] {
   /* Drake - Scorpion (Monochrome Grey/Black) */
@@ -228,43 +180,9 @@ html {
   --ring: 0 0% 100%;
 }
 
-[data-theme="peaches"] {
-  /* Justin Bieber - Justice (Shades of Green) */
-  --background: 140 40% 85%; /* Soft Mint/Sage Green */
-  --foreground: 150 80% 15%; /* Deep Forest Green */
-  --primary: 150 60% 40%; /* Medium Green */
-  --primary-foreground: 0 0% 100%;
-  --secondary: 140 30% 75%; /* Muted Green */
-  --secondary-foreground: 150 80% 15%;
-  --muted: 140 20% 70%;
-  --muted-foreground: 150 40% 40%;
-  --accent: 160 50% 45%; /* Teal-ish Green */
-  --accent-foreground: 0 0% 100%;
-  --border: 150 30% 60%;
-  --input: 150 30% 60%;
-  --ring: 150 60% 40%;
-}
 
-[data-theme="birds"] {
-  /* Billie Eilish - Hit Me Hard and Soft (Deep Underwater Blue) */
-  --background: 220 60% 15%;
-  /* Deep Blue */
-  --foreground: 0 0% 95%;
-  /* White */
-  --primary: 200 80% 60%;
-  /* Light Blue */
-  --primary-foreground: 220 60% 10%;
-  --secondary: 220 40% 25%;
-  /* Mid Blue */
-  --secondary-foreground: 0 0% 100%;
-  --muted: 220 40% 25%;
-  --muted-foreground: 200 40% 70%;
-  --accent: 200 80% 60%;
-  --accent-foreground: 220 60% 10%;
-  --border: 220 50% 30%;
-  --input: 220 50% 30%;
-  --ring: 200 80% 60%;
-}
+
+
 
 /* Removed special gradient to match the clean album art aesthetic */
 

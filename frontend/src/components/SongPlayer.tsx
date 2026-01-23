@@ -126,7 +126,7 @@ export default function SongPlayer() {
                                 }}
                                 className="font-[family-name:var(--font-gochi)] text-3xl text-foreground -rotate-12 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
                             >
-                                My top 6
+                                My top 5
                             </button>
                         </div>
 
@@ -157,7 +157,7 @@ export default function SongPlayer() {
                     >
                         <motion.div
                             layoutId="player-container"
-                            className="relative w-full max-w-md bg-card border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+                            className="relative w-full max-w-md bg-card border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Background Blur of Album Art */}
@@ -166,9 +166,9 @@ export default function SongPlayer() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                             </div>
 
-                            <div className="relative z-10 p-8 flex flex-col items-center text-center h-full justify-center space-y-8">
+                            <div className="relative z-10 p-6 md:p-8 flex flex-col items-center text-center h-full justify-center space-y-4 md:space-y-8 overflow-y-auto scrollbar-hide">
                                 {/* Header */}
-                                <div className="w-full flex justify-between items-center text-xs font-bold tracking-widest uppercase text-white relative">
+                                <div className="w-full flex justify-between items-center text-xs font-bold tracking-widest uppercase text-white relative shrink-0">
                                     <span className="absolute left-1/2 -translate-x-1/2">Now Playing</span>
                                     <div className="flex items-center gap-2 ml-auto">
                                         <button
@@ -191,7 +191,7 @@ export default function SongPlayer() {
                                 {/* Large Album Art */}
                                 <motion.div
                                     layoutId="album-art"
-                                    className="relative w-64 h-64 rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+                                    className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden shadow-2xl border border-white/10 shrink-0"
                                     style={{ boxShadow: "0 20px 50px -12px rgba(0, 0, 0, 0.5)" }}
                                 >
                                     <Image src={currentSong.image} alt={currentSong.title} fill className="object-cover" />
@@ -309,7 +309,7 @@ export default function SongPlayer() {
                         >
                             {/* Header */}
                             <div className="p-4 border-b border-white/10 flex justify-between items-center bg-black/20">
-                                <h2 className="text-lg font-bold text-white">My Top 6</h2>
+                                <h2 className="text-lg font-bold text-white">My Top 5</h2>
                                 <button
                                     onClick={() => setShowSongList(false)}
                                     className="p-1.5 hover:bg-white/10 rounded-full transition-colors text-white"
