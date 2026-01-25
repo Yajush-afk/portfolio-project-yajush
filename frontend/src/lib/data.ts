@@ -16,6 +16,7 @@ export interface Project {
     github_link: string | null;
     demo_link: string | null;
     image_url: string | null;
+    status: "deployed" | "built" | "building";
 }
 
 export interface Achievement {

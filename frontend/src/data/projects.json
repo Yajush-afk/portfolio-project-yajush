@@ -1,3 +1,69 @@
 {
-  "projects": []
+  "projects": [
+    {
+      "id": "quiz-game",
+      "title": "Quiz Game",
+      "description": "My first complete end-to-end Python backend project: a quiz and exam platform for Class 11–12 students in India, featuring a large, difficulty-segmented question bank and support for multi-subject blended exams. Future improvements include new features and a refined UI.",
+      "tech_stack": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "HTML",
+        "CSS",
+        "JS"
+      ],
+      "github_link": "https://github.com/Yajush-afk/Quiz-Game",
+      "demo_link": "https://quiz-game-lz7o.onrender.com",
+      "image_url": "/projects/quiz-app.png",
+      "status": "deployed"
+    },
+    {
+      "id": "portfolio-website",
+      "title": "Portfolio Website",
+      "description": "A modern, responsive portfolio website built with Next.js to showcase my projects and skills. Features a dynamic design, music system theme, and interactive elements.",
+      "tech_stack": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "TypeScript",
+        "Framer Motion"
+      ],
+      "github_link": "https://github.com/Yajush-afk/portfolio-project-yajush",
+      "demo_link": "https://yajush-web.vercel.app",
+      "image_url": "/projects/portfolio.png",
+      "status": "deployed"
+    },
+    {
+      "id": "neural-networks",
+      "title": "Visual NN",
+      "description": "Building neural networks from scratch using only mathematics, NumPy, and Pandas—no ML/DL libraries. Includes a simple UI to help users visualize and better understand complex neural network behavior.",
+      "tech_stack": [
+        "Python",
+        "Numpy",
+        "Pandas",
+        "React",
+        "JS"
+      ],
+      "github_link": null,
+      "demo_link": null,
+      "image_url": "/projects/coming-soon.png",
+      "status": "building"
+    },
+    {
+      "id": "ml-drift-monitoring",
+      "title": "ML Drift Monitoring & Auto-Retraining System",
+      "description": "A production-style ML service that detects data & prediction drift after deployment and decides when retraining is required.",
+      "tech_stack": [
+        "Python",
+        "FastAPI",
+        "Scikit-learn",
+        "Scipy",
+        "Postgres"
+      ],
+      "github_link": null,
+      "demo_link": null,
+      "image_url": "/projects/coming-soon.png",
+      "status": "building"
+    }
+  ]
 }

@@ -5,6 +5,19 @@ import { motion } from "framer-motion";
 import { FiCode, FiGithub, FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { techStackIcons, techStackUrls } from "@/lib/icons";
+
+const statusColors = {
+    deployed: "bg-green-500 shadow-[0_0_10px_#22c55e]",
+    built: "bg-yellow-500 shadow-[0_0_10px_#eab308]",
+    building: "bg-red-500 shadow-[0_0_10px_#ef4444]"
+};
+
+const statusLabels = {
+    deployed: "Deployed",
+    built: "Built (Not Deployed)",
+    building: "Building"
+};
 
 export default function ProjectsSection() {
     const projectsData = getProjectsData();
@@ -33,7 +46,7 @@ export default function ProjectsSection() {
 
             {/* Projects Grid */}
             {projects.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.id}
@@ -43,7 +56,7 @@ export default function ProjectsSection() {
                             transition={{ delay: index * 0.1 }}
                             className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl hover:shadow-primary/10 hover:border-primary/50 transition-all duration-300 flex flex-col"
                         >
-                            <div className="relative h-48 w-full bg-secondary/50 overflow-hidden">
+                            <div className="relative h-56 w-full bg-secondary/50 overflow-hidden">
                                 {project.image_url ? (
                                     <Image
                                         src={project.image_url}
@@ -57,28 +70,62 @@ export default function ProjectsSection() {
                                         <FiCode size={40} />
                                     </div>
                                 )}
+
+                                {/* Status Indicator */}
+                                <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
+                                    <div className={`w-2 h-2 rounded-full animate-pulse ${statusColors[project.status].split(" ")[0]}`} />
+                                    <span className="text-[10px] font-medium uppercase tracking-wider text-white/90">
+                                        {statusLabels[project.status]}
+                                    </span>
+                                </div>
                             </div>
+
                             <div className="p-6 space-y-4 flex-1 flex flex-col">
                                 <div className="space-y-2 flex-1">
-                                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{project.title}</h3>
-                                    <p className="text-muted-foreground text-sm line-clamp-3">
+                                    <div className="flex justify-between items-start gap-2 min-h-[3.5rem]">
+                                        <h3 className="text-xl font-bold group-hover:text-primary transition-colors line-clamp-2">
+                                            {project.title}
+                                        </h3>
+                                    </div>
+
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tech_stack.map((tech) => {
+                                            const Icon = techStackIcons[tech] || FiCode;
+                                            const url = techStackUrls[tech];
+
+                                            const content = (
+                                                <div
+                                                    className="p-1.5 bg-secondary text-secondary-foreground rounded-md hover:text-primary transition-colors cursor-pointer"
+                                                    title={tech}
+                                                >
+                                                    <Icon size={16} />
+                                                </div>
+                                            );
+
+                                            if (url) {
+                                                return (
+                                                    <a
+                                                        key={tech}
+                                                        href={url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                    >
+                                                        {content}
+                                                    </a>
+                                                );
+                                            }
+
+                                            return <div key={tech}>{content}</div>;
+                                        })}
+                                    </div>
+
+                                    <p className="text-muted-foreground text-sm pt-2">
                                         {project.description}
                                     </p>
                                 </div>
 
-                                <div className="flex flex-wrap gap-2 mt-auto">
-                                    {project.tech_stack.map((tech) => (
-                                        <span
-                                            key={tech}
-                                            className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-md font-mono"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-
                                 <div className="flex gap-4 pt-4 border-t border-border/50">
-                                    {project.github_link && (
+                                    {project.github_link ? (
                                         <a
                                             href={project.github_link}
                                             target="_blank"
@@ -87,8 +134,13 @@ export default function ProjectsSection() {
                                         >
                                             <FiGithub /> Code
                                         </a>
+                                    ) : (
+                                        <span className="flex items-center gap-2 text-sm font-medium text-muted-foreground cursor-not-allowed opacity-50">
+                                            <FiGithub /> Code
+                                        </span>
                                     )}
-                                    {project.demo_link && (
+
+                                    {project.demo_link ? (
                                         <a
                                             href={project.demo_link}
                                             target="_blank"
@@ -97,6 +149,10 @@ export default function ProjectsSection() {
                                         >
                                             <FiExternalLink /> Live Demo
                                         </a>
+                                    ) : (
+                                        <span className="flex items-center gap-2 text-sm font-medium text-muted-foreground cursor-not-allowed opacity-50">
+                                            <FiExternalLink /> Live Demo
+                                        </span>
                                     )}
                                 </div>
                             </div>

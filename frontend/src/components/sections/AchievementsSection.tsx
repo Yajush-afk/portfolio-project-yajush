@@ -2,7 +2,7 @@
 
 import { getAchievementsData, Achievement } from "@/lib/data";
 import { motion } from "framer-motion";
-import { FiAward, FiBriefcase } from "react-icons/fi";
+import { FiAward, FiBriefcase, FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
 
 const AchievementCard = ({ ach, index }: { ach: Achievement; index: number }) => (
@@ -28,35 +28,42 @@ const AchievementCard = ({ ach, index }: { ach: Achievement; index: number }) =>
         </div>
       )}
     </div>
-    <div className="p-5 space-y-3 flex-1 flex flex-col">
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-medium uppercase tracking-wider text-primary">
-          {ach.type}
-        </span>
-        <span className="text-xs text-muted-foreground">{ach.date}</span>
-      </div>
-      <h3 className="font-semibold line-clamp-2" title={ach.title}>
-        {ach.title}
-      </h3>
-      <div className="flex-1 space-y-2">
+    <div className="p-6 space-y-4 flex-1 flex flex-col">
+      <div className="space-y-2 flex-1">
+        <div className="flex items-center justify-between">
+            <span className="text-xs font-medium uppercase tracking-wider text-primary">
+            {ach.type}
+            </span>
+            <span className="text-xs text-muted-foreground">{ach.date}</span>
+        </div>
+        <h3 className="text-xl font-bold group-hover:text-primary transition-colors line-clamp-2" title={ach.title}>
+          {ach.title}
+        </h3>
         <p className="text-sm text-muted-foreground">{ach.issuer}</p>
+        
         {ach.description && (
-          <p className="text-sm text-muted-foreground/80 italic">
+          <p className="text-sm text-muted-foreground/80 pt-2 line-clamp-3">
             {ach.description}
           </p>
         )}
       </div>
 
-      {ach.credential_link && (
-        <a
-          href={ach.credential_link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block text-sm text-primary hover:underline pt-2 mt-auto"
-        >
-          {ach.type === "certificate" ? "View Credential" : "View Contribution"}
-        </a>
-      )}
+      <div className="pt-4 border-t border-border/50 mt-auto">
+        {ach.credential_link ? (
+            <a
+            href={ach.credential_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors"
+            >
+            <FiExternalLink /> {ach.type === "certificate" ? "View Credential" : "View Contribution"}
+            </a>
+        ) : (
+            <span className="flex items-center gap-2 text-sm font-medium text-muted-foreground cursor-not-allowed opacity-50">
+                <FiExternalLink /> {ach.type === "certificate" ? "View Credential" : "View Contribution"}
+            </span>
+        )}
+      </div>
     </div>
   </motion.div>
 );
@@ -81,7 +88,7 @@ export default function AchievementsSection() {
         </h2>
       </motion.div>
 
-      <div className="space-y-20">
+      <div className="space-y-20 max-w-6xl mx-auto w-full px-4">
         {/* Certifications */}
         {certifications.length > 0 && (
           <div className="space-y-8">
@@ -92,9 +99,10 @@ export default function AchievementsSection() {
               </h3>
               <div className="h-px bg-border flex-1 max-w-[100px]" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+            {/* 2x2 Grid for Certifications */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
               {certifications.map((ach, index) => (
-                <div key={ach.id} className="w-full max-w-sm">
+                <div key={ach.id} className="w-full max-w-md">
                   <AchievementCard ach={ach} index={index} />
                 </div>
               ))}
@@ -112,9 +120,10 @@ export default function AchievementsSection() {
               </h3>
               <div className="h-px bg-border flex-1 max-w-[100px]" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+            {/* Centered Grid for Proof of Work */}
+            <div className="flex justify-center">
               {proofOfWork.map((ach, index) => (
-                <div key={ach.id} className="w-full max-w-sm">
+                <div key={ach.id} className="w-full max-w-md">
                   <AchievementCard ach={ach} index={index} />
                 </div>
               ))}

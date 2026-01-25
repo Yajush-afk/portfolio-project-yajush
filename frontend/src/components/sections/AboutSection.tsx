@@ -2,66 +2,9 @@
 
 import { getAboutData, getCurrentlyLearningData } from "@/lib/data";
 import { motion } from "framer-motion";
-import { FiCode, FiTerminal, FiSearch, FiLock, FiDownload, FiBriefcase, FiZap } from "react-icons/fi";
-import { useEffect, useState } from "react";
-import {
-    SiHtml5, SiCss3, SiPython, SiCplusplus, SiFastapi, SiDjango, SiFlask,
-    SiMysql, SiPostgresql, SiScikitlearn, SiTensorflow, SiPytorch,
-    SiKaggle, SiGooglecolab, SiUbuntu, SiBrave, SiSpotify, SiGithub
-} from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
+import { FiTerminal, FiLock, FiDownload, FiZap, FiCode } from "react-icons/fi";
 import { useSong } from "@/context/SongContext";
-
-const techStack = [
-    {
-        category: "Frontend", items: [
-            { name: "HTML5", icon: SiHtml5, url: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "hover:text-orange-500" },
-            { name: "CSS3", icon: SiCss3, url: "https://developer.mozilla.org/en-US/docs/Web/CSS", color: "hover:text-blue-500" }
-        ]
-    },
-    {
-        category: "Backend", items: [
-            { name: "Python", icon: SiPython, url: "https://www.python.org/", color: "hover:text-yellow-400" },
-            { name: "C++", icon: SiCplusplus, url: "https://isocpp.org/", color: "hover:text-blue-600" }
-        ]
-    },
-    {
-        category: "Frameworks", items: [
-            { name: "FastAPI", icon: SiFastapi, url: "https://fastapi.tiangolo.com/", color: "hover:text-teal-400" },
-            { name: "Django", icon: SiDjango, url: "https://www.djangoproject.com/", color: "hover:text-green-600" },
-            { name: "Flask", icon: SiFlask, url: "https://flask.palletsprojects.com/", color: "hover:text-gray-400" }
-        ]
-    },
-    {
-        category: "Database", items: [
-            { name: "MySQL", icon: SiMysql, url: "https://www.mysql.com/", color: "hover:text-blue-400" },
-            { name: "PostgreSQL", icon: SiPostgresql, url: "https://www.postgresql.org/", color: "hover:text-blue-300" }
-        ]
-    },
-    {
-        category: "Data Science", items: [
-            { name: "Scikit-learn", icon: SiScikitlearn, url: "https://scikit-learn.org/", color: "hover:text-orange-400" },
-            { name: "TensorFlow", icon: SiTensorflow, url: "https://www.tensorflow.org/", color: "hover:text-orange-500" },
-            { name: "PyTorch", icon: SiPytorch, url: "https://pytorch.org/", color: "hover:text-red-500" }
-        ]
-    },
-    {
-        category: "Platforms", items: [
-            { name: "VS Code", icon: VscVscode, url: "https://code.visualstudio.com/", color: "hover:text-blue-500" },
-            { name: "Kaggle", icon: SiKaggle, url: "https://www.kaggle.com/", color: "hover:text-blue-400" },
-            { name: "Colab", icon: SiGooglecolab, url: "https://colab.research.google.com/", color: "hover:text-orange-400" }
-        ]
-    }
-];
-
-const toolkit = [
-    { name: "VS Code", icon: VscVscode, url: "https://code.visualstudio.com/", color: "text-blue-500" },
-    { name: "Terminal", icon: SiUbuntu, url: "https://ubuntu.com/", color: "text-orange-500" },
-    { name: "Brave", icon: SiBrave, url: "https://brave.com/", color: "text-orange-600" },
-    { name: "Spotify", icon: SiSpotify, url: "https://open.spotify.com/", color: "text-green-500" },
-    { name: "Perplexity", icon: FiSearch, url: "https://www.perplexity.ai/", color: "text-teal-400" },
-    { name: "GitHub", icon: SiGithub, url: "https://github.com/", color: "text-foreground" }
-];
+import { techStackData, toolkitData } from "@/lib/icons";
 
 export default function AboutSection() {
     const about = getAboutData();
@@ -183,7 +126,7 @@ export default function AboutSection() {
                                 <FiCode className="text-primary" /> Tech Stack
                             </h3>
                             <div className="grid grid-cols-2 gap-3">
-                                {techStack.map((stack, idx) => (
+                                    {techStackData.map((stack, idx) => (
                                     <motion.div
                                         key={stack.category}
                                         initial={{ opacity: 0, scale: 0.9 }}
@@ -225,7 +168,7 @@ export default function AboutSection() {
                                 className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-center shadow-xl"
                             >
                                 <div className="flex gap-3 flex-wrap justify-center">
-                                    {toolkit.map((tool, idx) => (
+                                    {toolkitData.map((tool, idx) => (
                                         <motion.a
                                             key={tool.name}
                                             href={tool.url}
