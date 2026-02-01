@@ -102,7 +102,7 @@ export default function AboutSection() {
 
                                 <div className="flex flex-col items-center gap-3 w-full md:w-auto">
                                     <a
-                                        href="https://drive.google.com/file/d/1ZZq_9GMh2_VlDqM2Og5r5A9rfA37AHs9/view?usp=sharing"
+                                        href="https://drive.google.com/file/d/1lsclxp4uTVkOpo1Egt7WKRBUOZkc0-3l/view?usp=sharing"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-bold hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/20 whitespace-nowrap"
